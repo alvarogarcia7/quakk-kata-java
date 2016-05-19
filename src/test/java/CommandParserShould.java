@@ -2,6 +2,7 @@ import com.codurance.test.quakker.Commands;
 import com.codurance.test.quakker.Output;
 import com.codurance.test.quakker.Quakk;
 import com.codurance.test.quakker.QuakkRepository;
+import com.codurance.test.quakker.Timeline;
 import com.codurance.test.quakker.User;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
@@ -30,6 +31,27 @@ public class CommandParserShould {
 		}});
 
 		commands.applyFrom("Alice -> I love the weather today");
+
+		context.assertIsSatisfied();
+	}
+
+	@Test
+	public void show_a_timeline() {
+		final String userName = "John";
+		final User user = new User(userName);
+		final Timeline userTimeline = new Timeline(
+				new Quakk("Good game though.", user),
+				new Quakk("Damn! We lost!", user)
+		);
+
+		context.checking(new Expectations() {{
+			oneOf(repository).list(user);
+			will(returnValue(userTimeline));
+
+			oneOf(output).show(userTimeline);
+		}});
+
+		commands.applyFrom(userName);
 
 		context.assertIsSatisfied();
 	}
