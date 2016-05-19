@@ -20,13 +20,18 @@ public class Wall implements Rule {
 	@Override
 	public void apply (final String representation) {
 		final User currentUser = parseUser(representation);
+		Timeline currentWall = obtainWall(currentUser);
+
+		output.show(currentWall);
+	}
+
+	private Timeline obtainWall (final User currentUser) {
 		Timeline currentWall = repository.wall(currentUser);
 		final List<User> currentFollowers = repository.followedBy(currentUser);
 		for (User currentFollower : currentFollowers) {
 			currentWall = currentWall.merge(repository.wall(currentFollower));
 		}
-
-		output.show(currentWall);
+		return currentWall;
 	}
 
 	private User parseUser (final String representation) {
