@@ -8,10 +8,7 @@ public class CliQuakker {
 	}
 
 	public void execute (final String commandRepresentation) {
-		commandQuakk(commandRepresentation);
-	}
-
-	private void commandQuakk (final String commandRepresentation) {
 		commands.applyFrom(commandRepresentation);
 	}
+
 }
