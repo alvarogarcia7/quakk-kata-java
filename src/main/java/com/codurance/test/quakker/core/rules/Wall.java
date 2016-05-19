@@ -19,9 +19,9 @@ public class Wall implements Rule {
 
 	@Override
 	public void apply (final String representation) {
-		final User user = parseUser(representation);
-		Timeline currentWall = repository.wall(user);
-		final List<User> currentFollowers = repository.followedBy(user);
+		final User currentUser = parseUser(representation);
+		Timeline currentWall = repository.wall(currentUser);
+		final List<User> currentFollowers = repository.followedBy(currentUser);
 		for (User currentFollower : currentFollowers) {
 			currentWall = currentWall.merge(repository.wall(currentFollower));
 		}
