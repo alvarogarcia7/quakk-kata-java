@@ -11,22 +11,6 @@ public class Commands {
 		rules.applyTo(representation);
 	}
 
-	private class QuakkCommandParser {
-		private final String representation;
-
-		public QuakkCommandParser (final String representation) {
-			this.representation = representation;
-		}
-
-		public Quakk parse () {
-			final String[] parts = representation.split(" -> ");
-			final User user = new User(parts[0]);
-			final Quakk quakk = new Quakk(parts[1], user);
-			return quakk;
-		}
-
-	}
-
 	private class Rules {
 		private final Rule[] rules;
 
@@ -61,7 +45,14 @@ public class Commands {
 
 		@Override
 		public void apply (final String representation) {
-			repository.save(new QuakkCommandParser(representation).parse());
+			repository.save(parseQuack(representation));
+		}
+
+		private Quakk parseQuack (final String representation) {
+			final String[] parts = representation.split(" -> ");
+			final User user = new User(parts[0]);
+			final Quakk quakk = new Quakk(parts[1], user);
+			return quakk;
 		}
 
 		@Override
