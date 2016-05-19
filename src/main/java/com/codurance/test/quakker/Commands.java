@@ -8,6 +8,21 @@ public class Commands {
 	}
 
 	public void applyFrom (final String representation) {
-		repository.save(new Quakk("I love the weather today", new User("Alice")));;
+		repository.save(new QuakkCommandParser(representation).parse());
+	}
+
+	private class QuakkCommandParser {
+		private final String representation;
+
+		public QuakkCommandParser (final String representation) {
+			this.representation = representation;
+		}
+		public Quakk parse () {
+			final String[] parts = representation.split(" -> ");
+			final User user = new User(parts[0]);
+			final Quakk quakk = new Quakk(parts[1], user);
+			return quakk;
+		}
+
 	}
 }
