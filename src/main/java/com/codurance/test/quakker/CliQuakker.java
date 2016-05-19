@@ -17,21 +17,4 @@ public class CliQuakker {
 		rules.applyTo(commandRepresentation);
 	}
 
-	private class Rules {
-		private final Rule[] rules;
-
-		public Rules (final Rule... rules) {
-			this.rules = rules;
-		}
-
-		private void applyTo (final String representation) {
-			for (Rule rule : rules) {
-				if (rule.appliesTo(representation)) {
-					rule.apply(representation);
-					break;
-				}
-			}
-		}
-	}
-
 }
