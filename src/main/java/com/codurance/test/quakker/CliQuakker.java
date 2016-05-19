@@ -5,7 +5,11 @@ public class CliQuakker {
 	private final Rules rules;
 
 	public CliQuakker (final QuakkRepository repository, final Output output, final Clock clock) {
-		this.rules = new Rules(new Posting(repository, clock), new Reading(output, repository, clock));
+		this.rules = new Rules(
+				new Posting(repository, clock),
+				new Wall(repository, output),
+				new Reading(output, repository, clock)
+		);
 	}
 
 	public void execute (final String commandRepresentation) {
@@ -33,7 +37,7 @@ public class CliQuakker {
 		}
 	}
 
-	private interface Rule {
+	public interface Rule {
 		void apply (final String representation);
 
 		boolean appliesTo (String representation);
