@@ -15,17 +15,20 @@ public class CliQuakkerShould {
 
 	private Mockery context;
 	private CliQuakker cli;
+	private QuakkRepository repository;
+	private Output output;
 
 	@Before
 	public void setUp () {
 		context = new Mockery();
+		repository = context.mock(QuakkRepository.class);
+		output = context.mock(Output.class);
+		cli = new CliQuakker(repository, output);
 	}
 
 	@Test
 	public void i_quakk_to_my_timeline () {
 
-		final QuakkRepository repository = context.mock(QuakkRepository.class);
-		cli = new CliQuakker(repository);
 		context.checking(new Expectations() {{
 			oneOf(repository).save(new Quakk("I love the weather today", new User("Alice")));
 		}});
@@ -38,15 +41,12 @@ public class CliQuakkerShould {
 	@Test
 	public void review_someone_elses_timeline () {
 
-		final QuakkRepository repository = context.mock(QuakkRepository.class);
 		final User user = new User("Bob");
 		final Timeline userTimeline = new Timeline(
 				new Quakk("Good game though.", user),
 				new Quakk("Damn! We lost!", user)
 		);
-		final Output output = context.mock(Output.class);
 
-		cli = new CliQuakker(repository, output);
 		context.checking(new Expectations() {{
 			oneOf(repository).list(user);
 			will(returnValue(userTimeline));
