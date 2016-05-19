@@ -8,6 +8,7 @@ import com.codurance.test.quakker.core.domain.User;
 import java.util.List;
 
 public class Wall implements Rule {
+	public static final String TOKEN = " wall";
 	private final QuakkRepository repository;
 	private final Output output;
 
@@ -29,11 +30,11 @@ public class Wall implements Rule {
 	}
 
 	private User parseUser (final String representation) {
-		return new User(representation.split(" wall")[0]);
+		return new User(representation.split(TOKEN)[0]);
 	}
 
 	@Override
 	public boolean appliesTo (final String representation) {
-		return representation.endsWith(" wall");
+		return representation.endsWith(TOKEN);
 	}
 }
