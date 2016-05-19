@@ -5,10 +5,6 @@ public class Quakk {
 	private final User owner;
 	private final DateTime dateTime;
 
-	public Quakk (final String message, final User owner) {
-		this(message, owner, DateTime.now());
-	}
-
 	public Quakk (final String message, final User owner, final DateTime dateTime) {
 		this.message = message;
 		this.owner = owner;
