@@ -1,4 +1,5 @@
 import com.codurance.test.quakker.Commands;
+import com.codurance.test.quakker.Output;
 import com.codurance.test.quakker.Quakk;
 import com.codurance.test.quakker.QuakkRepository;
 import com.codurance.test.quakker.User;
@@ -19,7 +20,8 @@ public class CommandParserShould {
 	@Test
 	public void parse_a_quakk_command () {
 		final QuakkRepository repository = context.mock(QuakkRepository.class);
-		final Commands commands = new Commands(repository);
+		final Output output = context.mock(Output.class);
+		final Commands commands = new Commands(repository, output);
 		context.checking(new Expectations() {{
 			oneOf(repository).save(new Quakk("I love the weather today", new User("Alice")));;
 		}});

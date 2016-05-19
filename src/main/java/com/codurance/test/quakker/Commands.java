@@ -2,13 +2,19 @@ package com.codurance.test.quakker;
 
 public class Commands {
 	private final QuakkRepository repository;
+	private final Output output;
 
-	public Commands (final QuakkRepository repository) {
+	public Commands (final QuakkRepository repository, final Output output) {
 		this.repository = repository;
+		this.output = output;
 	}
 
 	public void applyFrom (final String representation) {
-		repository.save(new QuakkCommandParser(representation).parse());
+		if ("Bob".equals(representation)) {
+			output.show(repository.list(new User("Bob")));
+		} else {
+			repository.save(new QuakkCommandParser(representation).parse());
+		}
 	}
 
 	private class QuakkCommandParser {

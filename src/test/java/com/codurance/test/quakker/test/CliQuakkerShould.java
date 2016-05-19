@@ -54,7 +54,7 @@ public class CliQuakkerShould {
 			oneOf(output).show(userTimeline);
 		}});
 
-		cli.execute("Alice");
+		cli.execute("Bob");
 
 		context.assertIsSatisfied();
 	}

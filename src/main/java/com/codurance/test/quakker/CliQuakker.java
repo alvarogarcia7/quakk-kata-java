@@ -4,11 +4,11 @@ public class CliQuakker {
 	private final Commands commands;
 
 	public CliQuakker (final QuakkRepository repository) {
-		commands = new Commands(repository);
+		this(repository, Output.MISSING());
 	}
 
 	public CliQuakker (final QuakkRepository repository, final Output output) {
-		commands = null;
+		commands = new Commands(repository, output);
 	}
 
 	public void execute (final String commandRepresentation) {
