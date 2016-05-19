@@ -8,6 +8,10 @@ public class CliQuakker {
 	}
 
 	public void execute (final String commandRepresentation) {
+		commandQuakk(commandRepresentation);
+	}
+
+	private void commandQuakk (final String commandRepresentation) {
 		repository.save(new Quakk("I love the weather today", new User("Alice")));
 	}
 }
