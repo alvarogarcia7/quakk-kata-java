@@ -3,8 +3,8 @@ package com.codurance.test.quakker;
 public class Commands {
 	private final Rules rules;
 
-	public Commands (final QuakkRepository repository, final Output output) {
-		this.rules = new Rules(new Posting(repository), new Reading(output, repository));
+	public Commands (final QuakkRepository repository, final Output output, final Clock clock) {
+		this.rules = new Rules(new Posting(repository, clock), new Reading(output, repository, clock));
 	}
 
 	public void applyFrom (final String representation) {
@@ -38,10 +38,12 @@ public class Commands {
 
 		public static final String KEYWORD_CREATION = " -> ";
 		private final QuakkRepository repository;
+		private final Clock clock;
 
-		public Posting (final QuakkRepository repository) {
+		public Posting (final QuakkRepository repository, final Clock clock) {
 
 			this.repository = repository;
+			this.clock = clock;
 		}
 
 		@Override
@@ -52,7 +54,7 @@ public class Commands {
 		private Quakk parseQuack (final String representation) {
 			final String[] parts = representation.split(KEYWORD_CREATION);
 			final User user = new User(parts[0]);
-			final Quakk quakk = QuakkBuilder.aNew(parts[1]).from(user).createQuakk();
+			final Quakk quakk = QuakkBuilder.aNew(parts[1]).from(user).at(clock.now()).createQuakk();
 			return quakk;
 		}
 
@@ -66,10 +68,12 @@ public class Commands {
 
 		private final Output output;
 		private final QuakkRepository repository;
+		private final Clock clock;
 
-		public Reading (final Output output, final QuakkRepository repository) {
+		public Reading (final Output output, final QuakkRepository repository, final Clock clock) {
 			this.output = output;
 			this.repository = repository;
+			this.clock = clock;
 		}
 
 		@Override

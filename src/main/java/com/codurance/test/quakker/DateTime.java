@@ -2,6 +2,7 @@ package com.codurance.test.quakker;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 
 public class DateTime {
@@ -15,8 +16,12 @@ public class DateTime {
 		}
 	}
 
+	private DateTime (final Date value) {
+		this.value = value;
+	}
+
 	public static DateTime now () {
-		return null;
+		return new DateTime(Date.from(Instant.now()));
 	}
 
 	public String toString () {

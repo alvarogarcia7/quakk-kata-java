@@ -1,4 +1,6 @@
+import com.codurance.test.quakker.Clock;
 import com.codurance.test.quakker.Commands;
+import com.codurance.test.quakker.DateTime;
 import com.codurance.test.quakker.Output;
 import com.codurance.test.quakker.QuakkBuilder;
 import com.codurance.test.quakker.QuakkRepository;
@@ -15,19 +17,24 @@ public class CommandParserShould {
 	private QuakkRepository repository;
 	private Output output;
 	private Commands commands;
+	private Clock clock;
 
 	@Before
 	public void setUp () {
 		context = new Mockery();
 		repository = context.mock(QuakkRepository.class);
 		output = context.mock(Output.class);
-		commands = new Commands(repository, output);
+		clock = context.mock(Clock.class);
+		commands = new Commands(repository, output, clock);
 	}
 
 	@Test
 	public void parse_a_quakk_command () {
 		context.checking(new Expectations() {{
-			oneOf(repository).save(QuakkBuilder.aNew("I love the weather today").from(new User("Alice")).createQuakk());;
+			oneOf(clock).now(); will(returnValue(new DateTime("18:30")));
+			oneOf(repository).save(QuakkBuilder.aNew("I love the weather today").from(new User("Alice")).at(new
+					DateTime("18:30"))
+					.createQuakk());
 		}});
 
 		commands.applyFrom("Alice -> I love the weather today");
