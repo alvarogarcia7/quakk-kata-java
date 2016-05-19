@@ -42,8 +42,7 @@ public class Timeline {
 
 	public Timeline merge (final Timeline another) {
 
-		final List<Quakk> allQuacks = concatQuacks(another);
-		final Quakk[] mergedQuakks = sort(allQuacks);
+		final Quakk[] mergedQuakks = sort(concatQuacks(another));
 		return new Timeline(mergedQuakks);
 	}
 
