@@ -27,6 +27,11 @@ public class Wall implements Rule {
 
 	private Timeline obtainWall (final User currentUser) {
 		Timeline currentWall = repository.wall(currentUser);
+		currentWall = addSubscribedWalls(currentUser, currentWall);
+		return currentWall;
+	}
+
+	private Timeline addSubscribedWalls (final User currentUser, Timeline currentWall) {
 		final List<User> currentFollowers = repository.followedBy(currentUser);
 		for (User currentFollower : currentFollowers) {
 			currentWall = currentWall.merge(repository.wall(currentFollower));
