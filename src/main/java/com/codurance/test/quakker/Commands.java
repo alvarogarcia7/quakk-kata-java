@@ -3,10 +3,12 @@ package com.codurance.test.quakker;
 public class Commands {
 	private final QuakkRepository repository;
 	private final Output output;
+	private final Rules rules;
 
 	public Commands (final QuakkRepository repository, final Output output) {
 		this.repository = repository;
 		this.output = output;
+		this.rules = new Rules(new Posting(), new Reading());
 	}
 
 	public void applyFrom (final String representation) {
@@ -31,5 +33,22 @@ public class Commands {
 			return quakk;
 		}
 
+	}
+
+	private class Rules {
+		public Rules (final Rule... rules) {
+		}
+
+	}
+
+	private interface Rule {
+	}
+
+	private class Posting implements Rule {
+
+	}
+
+	private class Reading implements Rule {
+		
 	}
 }
