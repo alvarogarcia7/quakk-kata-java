@@ -19,7 +19,7 @@ public class CommandParserShould {
 	@Test
 	public void parse_a_quakk_command () {
 		final QuakkRepository repository = context.mock(QuakkRepository.class);
-		final Commands commands = new Commands();
+		final Commands commands = new Commands(repository);
 		context.checking(new Expectations() {{
 			oneOf(repository).save(new Quakk("I love the weather today", new User("Alice")));;
 		}});
