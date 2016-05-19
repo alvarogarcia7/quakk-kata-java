@@ -47,7 +47,10 @@ public class Timeline {
 	}
 
 	private Quakk[] sort (final List<Quakk> allQuacks) {
-		return allQuacks.stream().sorted((o1, o2) -> o1.dateTime().compare(o2.dateTime())).collect(Collectors.toList()).toArray(new Quakk[0]);
+		return allQuacks.stream()
+				.sorted((o1, o2) -> o1.dateTime().compare(o2.dateTime()))
+				.collect(Collectors.toList())
+				.toArray(new Quakk[0]);
 	}
 
 	private List<Quakk> concatQuacksFrom (final Timeline another) {
