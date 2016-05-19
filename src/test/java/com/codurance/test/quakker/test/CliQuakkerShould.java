@@ -67,4 +67,24 @@ public class CliQuakkerShould {
 
 		context.assertIsSatisfied();
 	}
+
+	@Test
+	public void review_my_timeline () {
+
+		final User user = new User("Charlie");
+		final Timeline userTimeline = new Timeline(
+				QuakkBuilder.aNew("Good game though.").from(user).build(),
+				QuakkBuilder.aNew("Damn! We lost!").from(user).build()
+		);
+
+		context.checking(new Expectations() {{
+			oneOf(repository).list(user); will(returnValue(userTimeline));
+
+			oneOf(output).show(userTimeline);
+		}});
+
+		cli.execute("Charlie wall");
+
+		context.assertIsSatisfied();
+	}
 }
