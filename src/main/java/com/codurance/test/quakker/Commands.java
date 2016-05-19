@@ -10,10 +10,10 @@ public class Commands {
 	}
 
 	public void applyFrom (final String representation) {
-		if ("Bob".equals(representation) || "John".equals(representation)) {
-			output.show(repository.list(new User(representation)));
-		} else {
+		if (representation.contains("->")) {
 			repository.save(new QuakkCommandParser(representation).parse());
+		} else {
+			output.show(repository.list(new User(representation)));
 		}
 	}
 
@@ -23,6 +23,7 @@ public class Commands {
 		public QuakkCommandParser (final String representation) {
 			this.representation = representation;
 		}
+
 		public Quakk parse () {
 			final String[] parts = representation.split(" -> ");
 			final User user = new User(parts[0]);
