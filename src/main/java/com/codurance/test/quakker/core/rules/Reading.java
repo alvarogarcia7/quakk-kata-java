@@ -3,7 +3,7 @@ package com.codurance.test.quakker.core.rules;
 import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.ports.Output;
 import com.codurance.test.quakker.core.ports.QuakkRepository;
-import com.codurance.test.quakker.core.User;
+import com.codurance.test.quakker.core.domain.User;
 
 public class Reading implements Rule {
 

@@ -1,7 +1,7 @@
 package com.codurance.test.quakker.core.rules;
 
 import com.codurance.test.quakker.core.ports.QuakkRepository;
-import com.codurance.test.quakker.core.User;
+import com.codurance.test.quakker.core.domain.User;
 
 public class Subscribing implements Rule {
 	private final QuakkRepository repository;

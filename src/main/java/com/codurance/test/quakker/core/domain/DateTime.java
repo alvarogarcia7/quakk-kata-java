@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.core;
+package com.codurance.test.quakker.core.domain;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.core;
+package com.codurance.test.quakker.core.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;

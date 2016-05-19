@@ -1,8 +1,8 @@
 package com.codurance.test.quakker.core.ports;
 
-import com.codurance.test.quakker.core.Quakk;
-import com.codurance.test.quakker.core.Timeline;
-import com.codurance.test.quakker.core.User;
+import com.codurance.test.quakker.core.domain.Quakk;
+import com.codurance.test.quakker.core.domain.Timeline;
+import com.codurance.test.quakker.core.domain.User;
 
 import java.util.List;
 

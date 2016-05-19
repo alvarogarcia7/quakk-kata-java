@@ -1,8 +1,8 @@
 package com.codurance.test.quakker;
 
-import com.codurance.test.quakker.core.DateTime;
-import com.codurance.test.quakker.core.Quakk;
-import com.codurance.test.quakker.core.User;
+import com.codurance.test.quakker.core.domain.DateTime;
+import com.codurance.test.quakker.core.domain.Quakk;
+import com.codurance.test.quakker.core.domain.User;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

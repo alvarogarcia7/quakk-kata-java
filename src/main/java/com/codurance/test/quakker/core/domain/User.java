@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.core;
+package com.codurance.test.quakker.core.domain;
 
 public class User {
 	private final String name;
