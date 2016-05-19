@@ -13,6 +13,8 @@ import org.jmock.Mockery;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class CliQuakkerShould {
 
 	private Mockery context;
@@ -57,7 +59,7 @@ public class CliQuakkerShould {
 		);
 
 		context.checking(new Expectations() {{
-			oneOf(repository).list(user);
+			oneOf(repository).wall(user);
 			will(returnValue(userTimeline));
 
 			oneOf(output).show(userTimeline);
@@ -78,11 +80,44 @@ public class CliQuakkerShould {
 		);
 
 		context.checking(new Expectations() {{
-			oneOf(repository).list(user); will(returnValue(userTimeline));
+			oneOf(repository).wall(user); will(returnValue(userTimeline));
+			ignoring(repository);
 
 			oneOf(output).show(userTimeline);
 		}});
 
+		cli.execute("Charlie wall");
+
+		context.assertIsSatisfied();
+	}
+
+	@Test
+	public void when_subscribing_to_someone_the_timeline_shows_both_timelines () {
+
+		final User charlie = new User("Charlie");
+		final Timeline charlieTimeline = new Timeline(
+				QuakkBuilder.aNew("First Quakk!").from(charlie).at(new DateTime("21:50")).build()
+		);
+		final User bob = new User("Bob");
+		final Timeline bobTimeline = new Timeline(
+				QuakkBuilder.aNew("Hello World").from(bob).at(new DateTime("20:50")).build()
+		);
+
+		final Timeline mergedTimeline = new Timeline(
+				QuakkBuilder.aNew("Hello World").from(bob).at(new DateTime("20:50")).build(),
+				QuakkBuilder.aNew("First Quakk!").from(charlie).at(new DateTime("21:50")).build()
+		);
+
+		context.checking(new Expectations() {{
+			oneOf(repository).follow(charlie, bob);
+			oneOf(repository).followedBy(charlie); will(returnValue(Arrays.asList(bob)));
+			oneOf(repository).wall(bob); will(returnValue(bobTimeline));
+			oneOf(repository).wall(charlie); will(returnValue(charlieTimeline));
+
+			oneOf(output).show(mergedTimeline);
+		}});
+
+		cli.execute("Charlie follows Bob");
 		cli.execute("Charlie wall");
 
 		context.assertIsSatisfied();
