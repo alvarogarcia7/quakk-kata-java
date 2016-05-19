@@ -15,7 +15,7 @@ public class Subscribing implements Rule {
 		final String[] values = representation.split(" follows ");
 		final User whoSubscribes = new User(values[0]);
 		final User subscriptionTo = new User(values[1]);
-		repository.follow(whoSubscribes, subscriptionTo);
+		repository.subscribe(whoSubscribes, subscriptionTo);
 	}
 
 	@Override

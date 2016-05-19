@@ -11,7 +11,7 @@ public interface QuakkRepository {
 
 	Timeline wall (User user);
 
-	void follow (User whoSubscribes, User subscriptionTo);
+	void subscribe (User whoSubscribes, User subscriptionTo);
 
 	List<User> followedBy (User user);
 }

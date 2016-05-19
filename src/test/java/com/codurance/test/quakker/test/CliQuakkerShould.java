@@ -98,7 +98,7 @@ public class CliQuakkerShould {
 		final User bob = new User("Bob");
 
 		context.checking(new Expectations() {{
-			oneOf(repository).follow(charlie, bob);
+			oneOf(repository).subscribe(charlie, bob);
 		}});
 
 		cli.execute("Charlie follows Bob");
