@@ -2,7 +2,6 @@ package com.codurance.test.quakker.rules;
 
 import com.codurance.test.quakker.domain.Clock;
 import com.codurance.test.quakker.domain.Quakk;
-import com.codurance.test.quakker.domain.QuakkBuilder;
 import com.codurance.test.quakker.domain.QuakkRepository;
 import com.codurance.test.quakker.domain.User;
 
@@ -26,7 +25,7 @@ public class Posting implements Rule {
 	private Quakk parseQuack (final String representation) {
 		final String[] parts = representation.split(KEYWORD_CREATION);
 		final User user = new User(parts[0]);
-		final Quakk quakk = QuakkBuilder.aNew(parts[1]).from(user).at(clock.now()).build();
+		final Quakk quakk = Quakk.QuakkBuilder.aNew(parts[1]).from(user).at(clock.now()).build();
 		return quakk;
 	}
 

@@ -4,7 +4,7 @@ import com.codurance.test.quakker.application.CliQuakker;
 import com.codurance.test.quakker.domain.Clock;
 import com.codurance.test.quakker.domain.DateTime;
 import com.codurance.test.quakker.domain.Output;
-import com.codurance.test.quakker.domain.QuakkBuilder;
+import com.codurance.test.quakker.domain.Quakk;
 import com.codurance.test.quakker.domain.QuakkRepository;
 import com.codurance.test.quakker.domain.Timeline;
 import com.codurance.test.quakker.domain.User;
@@ -37,7 +37,7 @@ public class CliQuakkerShould {
 
 		context.checking(new Expectations() {{
 			oneOf(clock).now(); will(returnValue(new DateTime("22:30")));
-			oneOf(repository).save(QuakkBuilder
+			oneOf(repository).save(Quakk.QuakkBuilder
 					.aNew("I love the weather today")
 					.from(new User("Alice"))
 					.at(new DateTime("22:30"))
@@ -54,8 +54,8 @@ public class CliQuakkerShould {
 
 		final User user = new User("Bob");
 		final Timeline userTimeline = new Timeline(
-				QuakkBuilder.aNew("Good game though.").from(user).build(),
-				QuakkBuilder.aNew("Damn! We lost!").from(user).build()
+				Quakk.QuakkBuilder.aNew("Good game though.").from(user).build(),
+				Quakk.QuakkBuilder.aNew("Damn! We lost!").from(user).build()
 		);
 
 		context.checking(new Expectations() {{
@@ -75,8 +75,8 @@ public class CliQuakkerShould {
 
 		final User user = new User("Charlie");
 		final Timeline userTimeline = new Timeline(
-				QuakkBuilder.aNew("Good game though.").from(user).build(),
-				QuakkBuilder.aNew("Damn! We lost!").from(user).build()
+				Quakk.QuakkBuilder.aNew("Good game though.").from(user).build(),
+				Quakk.QuakkBuilder.aNew("Damn! We lost!").from(user).build()
 		);
 
 		context.checking(new Expectations() {{
@@ -111,16 +111,16 @@ public class CliQuakkerShould {
 
 		final User charlie = new User("Charlie");
 		final Timeline charlieTimeline = new Timeline(
-				QuakkBuilder.aNew("First Quakk!").from(charlie).at(new DateTime("21:50")).build()
+				Quakk.QuakkBuilder.aNew("First Quakk!").from(charlie).at(new DateTime("21:50")).build()
 		);
 		final User bob = new User("Bob");
 		final Timeline bobTimeline = new Timeline(
-				QuakkBuilder.aNew("Hello World").from(bob).at(new DateTime("20:50")).build()
+				Quakk.QuakkBuilder.aNew("Hello World").from(bob).at(new DateTime("20:50")).build()
 		);
 
 		final Timeline mergedTimeline = new Timeline(
-				QuakkBuilder.aNew("Hello World").from(bob).at(new DateTime("20:50")).build(),
-				QuakkBuilder.aNew("First Quakk!").from(charlie).at(new DateTime("21:50")).build()
+				Quakk.QuakkBuilder.aNew("Hello World").from(bob).at(new DateTime("20:50")).build(),
+				Quakk.QuakkBuilder.aNew("First Quakk!").from(charlie).at(new DateTime("21:50")).build()
 		);
 
 		context.checking(new Expectations() {{

@@ -5,7 +5,7 @@ public class Quakk {
 	private final User owner;
 	private final DateTime dateTime;
 
-	public Quakk (final String message, final User owner, final DateTime dateTime) {
+	private Quakk (final String message, final User owner, final DateTime dateTime) {
 		this.message = message;
 		this.owner = owner;
 		this.dateTime = dateTime;
@@ -40,5 +40,34 @@ public class Quakk {
 		result = 31 * result + (owner != null ? owner.hashCode() : 0);
 		result = 31 * result + (dateTime != null ? dateTime.hashCode() : 0);
 		return result;
+	}
+
+	public static class QuakkBuilder {
+		private String message;
+		private User owner;
+		private DateTime dateTime = DateTime.now();
+
+		private QuakkBuilder (final String message) {
+			this.message = message;
+		}
+
+		public static QuakkBuilder aNew (final String message) {
+			final QuakkBuilder builder = new QuakkBuilder(message);
+			return builder;
+		}
+
+		public QuakkBuilder from (final User owner) {
+			this.owner = owner;
+			return this;
+		}
+
+		public QuakkBuilder at (final DateTime dateTime) {
+			this.dateTime = dateTime;
+			return this;
+		}
+
+		public Quakk build () {
+			return new Quakk(message, owner, dateTime);
+		}
 	}
 }

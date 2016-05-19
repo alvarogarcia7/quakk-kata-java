@@ -1,7 +1,7 @@
 package com.codurance.test.quakker;
 
 import com.codurance.test.quakker.domain.DateTime;
-import com.codurance.test.quakker.domain.QuakkBuilder;
+import com.codurance.test.quakker.domain.Quakk;
 import com.codurance.test.quakker.domain.User;
 import org.junit.Test;
 
@@ -14,12 +14,12 @@ public class QuakkShould {
 
 	@Test
 	public void contain_the_message () {
-		assertThat(QuakkBuilder.aNew("message").from(ANY_USER).build(), is(QuakkBuilder.aNew("message").from(ANY_USER).build()));
+		assertThat(Quakk.QuakkBuilder.aNew("message").from(ANY_USER).build(), is(Quakk.QuakkBuilder.aNew("message").from(ANY_USER).build()));
 	}
 
 	@Test
 	public void contain_the_date () {
-		assertThat(QuakkBuilder.aNew("message").from(ANY_USER).at(new DateTime("16:30")).build(), is(QuakkBuilder.aNew("message").from(ANY_USER).at(new DateTime("16:30")).build()));
+		assertThat(Quakk.QuakkBuilder.aNew("message").from(ANY_USER).at(new DateTime("16:30")).build(), is(Quakk.QuakkBuilder.aNew("message").from(ANY_USER).at(new DateTime("16:30")).build()));
 	}
 
 }
