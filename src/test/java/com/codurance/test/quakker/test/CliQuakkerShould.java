@@ -107,7 +107,7 @@ public class CliQuakkerShould {
 	}
 
 	@Test
-	public void when_subscribed_to_someone_the_timeline_shows_both_timelines () {
+	public void when_subscribed_to_someone_the_timeline_is_showing_both_timelines () {
 
 		final User charlie = new User("Charlie");
 		final Timeline charlieTimeline = new Timeline(
