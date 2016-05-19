@@ -11,17 +11,20 @@ import org.junit.Test;
 public class CommandParserShould {
 
 	private Mockery context;
+	private QuakkRepository repository;
+	private Output output;
+	private Commands commands;
 
 	@Before
 	public void setUp () {
 		context = new Mockery();
+		repository = context.mock(QuakkRepository.class);
+		output = context.mock(Output.class);
+		commands = new Commands(repository, output);
 	}
 
 	@Test
 	public void parse_a_quakk_command () {
-		final QuakkRepository repository = context.mock(QuakkRepository.class);
-		final Output output = context.mock(Output.class);
-		final Commands commands = new Commands(repository, output);
 		context.checking(new Expectations() {{
 			oneOf(repository).save(new Quakk("I love the weather today", new User("Alice")));;
 		}});
