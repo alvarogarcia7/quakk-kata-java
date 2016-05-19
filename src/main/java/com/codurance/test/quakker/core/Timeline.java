@@ -26,6 +26,7 @@ public class Timeline {
 	}
 
 	private List<Quakk> concatQuacksFrom (final Timeline another) {
+		// cannot addAll to an AbstractList [UnsupportedOperationException]
 		final List<Quakk> allQuacks = new ArrayList<>(Arrays.asList((another.quakks)));
 		allQuacks.addAll(Arrays.asList(this.quakks));
 		return allQuacks;
