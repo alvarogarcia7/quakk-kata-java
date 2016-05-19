@@ -1,6 +1,10 @@
 package com.codurance.test.quakker.core;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Timeline {
 	private final Quakk[] quakks;
@@ -38,6 +42,21 @@ public class Timeline {
 	}
 
 	public Timeline merge (final Timeline another) {
-		return new Timeline(another.quakks[0], this.quakks[0]);
+
+		final List<Quakk> allQuacks = concatQuacks(another);
+		final Quakk[] mergedQuakks = allQuacks.stream().sorted(new Comparator<Quakk>() {
+			@Override
+			public int compare (final Quakk o1, final Quakk o2) {
+				return o1.dateTime().compare(o2.dateTime());
+			}
+		}).collect(Collectors.toList()).toArray(new Quakk[0]);
+		return new Timeline(mergedQuakks);
 	}
+
+	private List<Quakk> concatQuacks (final Timeline another) {
+		final List<Quakk> allQuacks = new ArrayList<>(Arrays.asList((another.quakks)));
+		allQuacks.addAll(Arrays.asList(this.quakks));
+		return allQuacks;
+	}
+
 }

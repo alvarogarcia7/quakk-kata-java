@@ -46,4 +46,8 @@ public class DateTime {
 	public int hashCode () {
 		return value != null ? value.hashCode() : 0;
 	}
+
+	public int compare (final DateTime other) {
+		return this.value.compareTo(other.value);
+	}
 }

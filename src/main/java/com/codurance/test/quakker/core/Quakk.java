@@ -11,6 +11,10 @@ public class Quakk {
 		this.dateTime = dateTime;
 	}
 
+	public DateTime dateTime () {
+		return dateTime;
+	}
+
 	@Override
 	public String toString () {
 		final StringBuffer sb = new StringBuffer("Quakk{");
@@ -70,4 +74,5 @@ public class Quakk {
 			return new Quakk(message, owner, dateTime);
 		}
 	}
+
 }
