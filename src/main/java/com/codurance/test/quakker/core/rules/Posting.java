@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.rules;
+package com.codurance.test.quakker.core.rules;
 
 import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.Quakk;

@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.rules;
+package com.codurance.test.quakker.core.rules;
 
 public interface Rule {
 	void apply (final String representation);

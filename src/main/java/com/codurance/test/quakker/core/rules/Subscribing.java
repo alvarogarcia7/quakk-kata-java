@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.rules;
+package com.codurance.test.quakker.core.rules;
 
 import com.codurance.test.quakker.core.ports.QuakkRepository;
 import com.codurance.test.quakker.core.User;
