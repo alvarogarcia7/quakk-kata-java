@@ -39,7 +39,7 @@ public class CliQuakkerShould {
 					.aNew("I love the weather today")
 					.from(new User("Alice"))
 					.at(new DateTime("22:30"))
-					.createQuakk());
+					.build());
 		}});
 
 		cli.execute("Alice -> I love the weather today");
@@ -52,8 +52,8 @@ public class CliQuakkerShould {
 
 		final User user = new User("Bob");
 		final Timeline userTimeline = new Timeline(
-				QuakkBuilder.aNew("Good game though.").from(user).createQuakk(),
-				QuakkBuilder.aNew("Damn! We lost!").from(user).createQuakk()
+				QuakkBuilder.aNew("Good game though.").from(user).build(),
+				QuakkBuilder.aNew("Damn! We lost!").from(user).build()
 		);
 
 		context.checking(new Expectations() {{

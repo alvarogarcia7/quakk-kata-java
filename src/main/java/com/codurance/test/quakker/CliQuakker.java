@@ -59,7 +59,7 @@ public class CliQuakker {
 		private Quakk parseQuack (final String representation) {
 			final String[] parts = representation.split(KEYWORD_CREATION);
 			final User user = new User(parts[0]);
-			final Quakk quakk = QuakkBuilder.aNew(parts[1]).from(user).at(clock.now()).createQuakk();
+			final Quakk quakk = QuakkBuilder.aNew(parts[1]).from(user).at(clock.now()).build();
 			return quakk;
 		}
 

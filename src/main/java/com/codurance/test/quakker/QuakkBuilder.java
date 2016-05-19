@@ -24,7 +24,7 @@ public class QuakkBuilder {
 		return this;
 	}
 
-	public Quakk createQuakk () {
+	public Quakk build () {
 		return new Quakk(message, owner, dateTime);
 	}
 }
