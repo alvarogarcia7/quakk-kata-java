@@ -12,12 +12,23 @@ public class Timeline {
 		this.quakks = quakks;
 	}
 
-	@Override
-	public String toString () {
-		final StringBuffer sb = new StringBuffer("Timeline{");
-		sb.append("quakks=").append(quakks == null ? "null" : Arrays.asList(quakks).toString());
-		sb.append('}');
-		return sb.toString();
+	public Timeline merge (final Timeline another) {
+
+		final Quakk[] mergedQuakks = sort(concatQuacksFrom(another));
+		return new Timeline(mergedQuakks);
+	}
+
+	private Quakk[] sort (final List<Quakk> allQuacks) {
+		return allQuacks.stream()
+				.sorted((o1, o2) -> o1.dateTime().compare(o2.dateTime()))
+				.collect(Collectors.toList())
+				.toArray(new Quakk[0]);
+	}
+
+	private List<Quakk> concatQuacksFrom (final Timeline another) {
+		final List<Quakk> allQuacks = new ArrayList<>(Arrays.asList((another.quakks)));
+		allQuacks.addAll(Arrays.asList(this.quakks));
+		return allQuacks;
 	}
 
 	@Override
@@ -40,23 +51,12 @@ public class Timeline {
 		return Arrays.hashCode(quakks);
 	}
 
-	public Timeline merge (final Timeline another) {
-
-		final Quakk[] mergedQuakks = sort(concatQuacksFrom(another));
-		return new Timeline(mergedQuakks);
-	}
-
-	private Quakk[] sort (final List<Quakk> allQuacks) {
-		return allQuacks.stream()
-				.sorted((o1, o2) -> o1.dateTime().compare(o2.dateTime()))
-				.collect(Collectors.toList())
-				.toArray(new Quakk[0]);
-	}
-
-	private List<Quakk> concatQuacksFrom (final Timeline another) {
-		final List<Quakk> allQuacks = new ArrayList<>(Arrays.asList((another.quakks)));
-		allQuacks.addAll(Arrays.asList(this.quakks));
-		return allQuacks;
+	@Override
+	public String toString () {
+		final StringBuffer sb = new StringBuffer("Timeline{");
+		sb.append("quakks=").append(quakks == null ? "null" : Arrays.asList(quakks).toString());
+		sb.append('}');
+		return sb.toString();
 	}
 
 }
