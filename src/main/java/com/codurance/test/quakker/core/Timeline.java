@@ -42,7 +42,7 @@ public class Timeline {
 
 	public Timeline merge (final Timeline another) {
 
-		final Quakk[] mergedQuakks = sort(concatQuacks(another));
+		final Quakk[] mergedQuakks = sort(concatQuacksFrom(another));
 		return new Timeline(mergedQuakks);
 	}
 
@@ -50,7 +50,7 @@ public class Timeline {
 		return allQuacks.stream().sorted((o1, o2) -> o1.dateTime().compare(o2.dateTime())).collect(Collectors.toList()).toArray(new Quakk[0]);
 	}
 
-	private List<Quakk> concatQuacks (final Timeline another) {
+	private List<Quakk> concatQuacksFrom (final Timeline another) {
 		final List<Quakk> allQuacks = new ArrayList<>(Arrays.asList((another.quakks)));
 		allQuacks.addAll(Arrays.asList(this.quakks));
 		return allQuacks;
