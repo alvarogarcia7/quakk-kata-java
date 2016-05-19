@@ -92,7 +92,22 @@ public class CliQuakkerShould {
 	}
 
 	@Test
-	public void when_subscribing_to_someone_the_timeline_shows_both_timelines () {
+	public void subscribing_to_someone () {
+
+		final User charlie = new User("Charlie");
+		final User bob = new User("Bob");
+
+		context.checking(new Expectations() {{
+			oneOf(repository).follow(charlie, bob);
+		}});
+
+		cli.execute("Charlie follows Bob");
+
+		context.assertIsSatisfied();
+	}
+
+	@Test
+	public void when_subscribed_to_someone_the_timeline_shows_both_timelines () {
 
 		final User charlie = new User("Charlie");
 		final Timeline charlieTimeline = new Timeline(
@@ -109,7 +124,6 @@ public class CliQuakkerShould {
 		);
 
 		context.checking(new Expectations() {{
-			oneOf(repository).follow(charlie, bob);
 			oneOf(repository).followedBy(charlie); will(returnValue(Arrays.asList(bob)));
 			oneOf(repository).wall(bob); will(returnValue(bobTimeline));
 			oneOf(repository).wall(charlie); will(returnValue(charlieTimeline));
@@ -117,7 +131,6 @@ public class CliQuakkerShould {
 			oneOf(output).show(mergedTimeline);
 		}});
 
-		cli.execute("Charlie follows Bob");
 		cli.execute("Charlie wall");
 
 		context.assertIsSatisfied();
