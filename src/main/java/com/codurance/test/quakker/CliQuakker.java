@@ -7,6 +7,10 @@ public class CliQuakker {
 		commands = new Commands(repository);
 	}
 
+	public CliQuakker (final QuakkRepository repository, final Output output) {
+		commands = null;
+	}
+
 	public void execute (final String commandRepresentation) {
 		commands.applyFrom(commandRepresentation);
 	}
