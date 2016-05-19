@@ -2,7 +2,7 @@ package com.codurance.test.quakker;
 
 import java.util.List;
 
-public class Wall implements CliQuakker.Rule {
+public class Wall implements Rule {
 	private final QuakkRepository repository;
 	private final Output output;
 

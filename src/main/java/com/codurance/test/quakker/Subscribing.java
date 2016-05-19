@@ -1,6 +1,6 @@
 package com.codurance.test.quakker;
 
-public class Subscribing implements CliQuakker.Rule {
+public class Subscribing implements Rule {
 	private final QuakkRepository repository;
 
 	public Subscribing (final QuakkRepository repository) {

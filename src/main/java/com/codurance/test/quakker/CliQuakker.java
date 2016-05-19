@@ -34,12 +34,6 @@ public class CliQuakker {
 		}
 	}
 
-	public interface Rule {
-		void apply (final String representation);
-
-		boolean appliesTo (String representation);
-	}
-
 	private class Posting implements Rule {
 
 		public static final String KEYWORD_CREATION = " -> ";
