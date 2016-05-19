@@ -12,6 +12,6 @@ public class CliQuakker {
 	}
 
 	private void commandQuakk (final String commandRepresentation) {
-		repository.save(new Quakk("I love the weather today", new User("Alice")));
+		new Commands(repository).applyFrom(commandRepresentation);
 	}
 }
