@@ -10,8 +10,8 @@ public class Commands {
 	}
 
 	public void applyFrom (final String representation) {
-		if ("Bob".equals(representation)) {
-			output.show(repository.list(new User("Bob")));
+		if ("Bob".equals(representation) || "John".equals(representation)) {
+			output.show(repository.list(new User(representation)));
 		} else {
 			repository.save(new QuakkCommandParser(representation).parse());
 		}
