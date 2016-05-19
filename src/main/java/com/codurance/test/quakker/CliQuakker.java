@@ -14,11 +14,7 @@ public class CliQuakker {
 	}
 
 	public void execute (final String commandRepresentation) {
-		applyFrom(commandRepresentation);
-	}
-
-	public void applyFrom (final String representation) {
-		rules.applyTo(representation);
+		rules.applyTo(commandRepresentation);
 	}
 
 	private class Rules {
