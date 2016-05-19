@@ -24,13 +24,20 @@ public class Timeline {
 
 		final Timeline timeline = (Timeline) o;
 
-		// Probably incorrect - comparing Object[] arrays with Arrays.equals
-		return Arrays.equals(quakks, timeline.quakks);
+		boolean isEqual = true;
+		for (int i = 0; i < quakks.length; i++) {
+			isEqual = isEqual && quakks[i].equals(timeline.quakks[i]);
+		}
+		return isEqual;
 
 	}
 
 	@Override
 	public int hashCode () {
 		return Arrays.hashCode(quakks);
+	}
+
+	public Timeline merge (final Timeline another) {
+		return new Timeline(another.quakks[0], this.quakks[0]);
 	}
 }

@@ -7,6 +7,7 @@ public class CliQuakker {
 	public CliQuakker (final QuakkRepository repository, final Output output, final Clock clock) {
 		this.rules = new Rules(
 				new Posting(repository, clock),
+				new Subscribing(repository),
 				new Wall(repository, output),
 				new Reading(output, repository, clock)
 		);
@@ -87,7 +88,7 @@ public class CliQuakker {
 
 		@Override
 		public void apply (final String representation) {
-			output.show(repository.list(new User(representation)));
+			output.show(repository.wall(new User(representation)));
 		}
 
 		@Override

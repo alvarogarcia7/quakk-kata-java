@@ -1,5 +1,7 @@
 package com.codurance.test.quakker;
 
+import java.util.List;
+
 public class Wall implements CliQuakker.Rule {
 	private final QuakkRepository repository;
 	private final Output output;
@@ -11,7 +13,14 @@ public class Wall implements CliQuakker.Rule {
 
 	@Override
 	public void apply (final String representation) {
-		output.show(repository.list(parseUser(representation)));
+		final User user = parseUser(representation);
+		Timeline currentWall = repository.wall(user);
+		final List<User> currentFollowers = repository.followedBy(user);
+		for (User currentFollower : currentFollowers) {
+			currentWall = currentWall.merge(repository.wall(currentFollower));
+		}
+
+		output.show(currentWall);
 	}
 
 	private User parseUser (final String representation) {
