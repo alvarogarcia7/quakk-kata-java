@@ -1,13 +1,13 @@
 package com.codurance.test.quakker.test;
 
-import com.codurance.test.quakker.CliQuakker;
-import com.codurance.test.quakker.Clock;
-import com.codurance.test.quakker.DateTime;
-import com.codurance.test.quakker.Output;
-import com.codurance.test.quakker.QuakkBuilder;
-import com.codurance.test.quakker.QuakkRepository;
-import com.codurance.test.quakker.Timeline;
-import com.codurance.test.quakker.User;
+import com.codurance.test.quakker.application.CliQuakker;
+import com.codurance.test.quakker.domain.Clock;
+import com.codurance.test.quakker.domain.DateTime;
+import com.codurance.test.quakker.domain.Output;
+import com.codurance.test.quakker.domain.QuakkBuilder;
+import com.codurance.test.quakker.domain.QuakkRepository;
+import com.codurance.test.quakker.domain.Timeline;
+import com.codurance.test.quakker.domain.User;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;

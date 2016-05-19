@@ -1,4 +1,4 @@
-package com.codurance.test.quakker;
+package com.codurance.test.quakker.domain;
 
 public class Quakk {
 	private final String message;

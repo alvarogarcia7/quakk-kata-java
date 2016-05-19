@@ -1,10 +1,10 @@
 package com.codurance.test.quakker.rules;
 
-import com.codurance.test.quakker.Clock;
-import com.codurance.test.quakker.Quakk;
-import com.codurance.test.quakker.QuakkBuilder;
-import com.codurance.test.quakker.QuakkRepository;
-import com.codurance.test.quakker.User;
+import com.codurance.test.quakker.domain.Clock;
+import com.codurance.test.quakker.domain.Quakk;
+import com.codurance.test.quakker.domain.QuakkBuilder;
+import com.codurance.test.quakker.domain.QuakkRepository;
+import com.codurance.test.quakker.domain.User;
 
 public class Posting implements Rule {
 
