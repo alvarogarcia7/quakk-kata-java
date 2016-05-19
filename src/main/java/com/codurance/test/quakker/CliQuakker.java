@@ -1,10 +1,10 @@
 package com.codurance.test.quakker;
 
 public class CliQuakker {
-	private final QuakkRepository repository;
+	private final Commands commands;
 
 	public CliQuakker (final QuakkRepository repository) {
-		this.repository = repository;
+		commands = new Commands(repository);
 	}
 
 	public void execute (final String commandRepresentation) {
@@ -12,6 +12,6 @@ public class CliQuakker {
 	}
 
 	private void commandQuakk (final String commandRepresentation) {
-		new Commands(repository).applyFrom(commandRepresentation);
+		commands.applyFrom(commandRepresentation);
 	}
 }
