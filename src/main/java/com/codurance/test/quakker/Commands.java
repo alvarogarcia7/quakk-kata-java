@@ -52,7 +52,7 @@ public class Commands {
 		private Quakk parseQuack (final String representation) {
 			final String[] parts = representation.split(KEYWORD_CREATION);
 			final User user = new User(parts[0]);
-			final Quakk quakk = new Quakk(parts[1], user);
+			final Quakk quakk = QuakkBuilder.aNew(parts[1]).from(user).createQuakk();
 			return quakk;
 		}
 

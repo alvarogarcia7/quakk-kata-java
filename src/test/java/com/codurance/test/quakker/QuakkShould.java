@@ -11,12 +11,12 @@ public class QuakkShould {
 
 	@Test
 	public void contain_the_message () {
-		assertThat(new Quakk("message", ANY_USER), is(new Quakk("message", ANY_USER)));
+		assertThat(QuakkBuilder.aNew("message").from(ANY_USER).createQuakk(), is(QuakkBuilder.aNew("message").from(ANY_USER).createQuakk()));
 	}
 
 	@Test
 	public void contain_the_date () {
-		assertThat(new Quakk("message", ANY_USER, new DateTime("16:30")), is(new Quakk("message", ANY_USER, new DateTime("16:30"))));
+		assertThat(QuakkBuilder.aNew("message").from(ANY_USER).at(new DateTime("16:30")).createQuakk(), is(QuakkBuilder.aNew("message").from(ANY_USER).at(new DateTime("16:30")).createQuakk()));
 	}
 
 }

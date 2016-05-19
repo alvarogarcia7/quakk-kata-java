@@ -1,6 +1,6 @@
 import com.codurance.test.quakker.Commands;
 import com.codurance.test.quakker.Output;
-import com.codurance.test.quakker.Quakk;
+import com.codurance.test.quakker.QuakkBuilder;
 import com.codurance.test.quakker.QuakkRepository;
 import com.codurance.test.quakker.Timeline;
 import com.codurance.test.quakker.User;
@@ -27,7 +27,7 @@ public class CommandParserShould {
 	@Test
 	public void parse_a_quakk_command () {
 		context.checking(new Expectations() {{
-			oneOf(repository).save(new Quakk("I love the weather today", new User("Alice")));;
+			oneOf(repository).save(QuakkBuilder.aNew("I love the weather today").from(new User("Alice")).createQuakk());;
 		}});
 
 		commands.applyFrom("Alice -> I love the weather today");
@@ -40,8 +40,8 @@ public class CommandParserShould {
 		final String userName = "John";
 		final User user = new User(userName);
 		final Timeline userTimeline = new Timeline(
-				new Quakk("Good game though.", user),
-				new Quakk("Damn! We lost!", user)
+				QuakkBuilder.aNew("Good game though.").from(user).createQuakk(),
+				QuakkBuilder.aNew("Damn! We lost!").from(user).createQuakk()
 		);
 
 		context.checking(new Expectations() {{

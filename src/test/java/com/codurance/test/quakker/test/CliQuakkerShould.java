@@ -2,7 +2,7 @@ package com.codurance.test.quakker.test;
 
 import com.codurance.test.quakker.CliQuakker;
 import com.codurance.test.quakker.Output;
-import com.codurance.test.quakker.Quakk;
+import com.codurance.test.quakker.QuakkBuilder;
 import com.codurance.test.quakker.QuakkRepository;
 import com.codurance.test.quakker.Timeline;
 import com.codurance.test.quakker.User;
@@ -30,7 +30,7 @@ public class CliQuakkerShould {
 	public void i_quakk_to_my_timeline () {
 
 		context.checking(new Expectations() {{
-			oneOf(repository).save(new Quakk("I love the weather today", new User("Alice")));
+			oneOf(repository).save(QuakkBuilder.aNew("I love the weather today").from(new User("Alice")).createQuakk());
 		}});
 
 		cli.execute("Alice -> I love the weather today");
@@ -43,8 +43,8 @@ public class CliQuakkerShould {
 
 		final User user = new User("Bob");
 		final Timeline userTimeline = new Timeline(
-				new Quakk("Good game though.", user),
-				new Quakk("Damn! We lost!", user)
+				QuakkBuilder.aNew("Good game though.").from(user).createQuakk(),
+				QuakkBuilder.aNew("Damn! We lost!").from(user).createQuakk()
 		);
 
 		context.checking(new Expectations() {{
