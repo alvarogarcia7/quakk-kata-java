@@ -43,8 +43,12 @@ public class Timeline {
 	public Timeline merge (final Timeline another) {
 
 		final List<Quakk> allQuacks = concatQuacks(another);
-		final Quakk[] mergedQuakks = allQuacks.stream().sorted((o1, o2) -> o1.dateTime().compare(o2.dateTime())).collect(Collectors.toList()).toArray(new Quakk[0]);
+		final Quakk[] mergedQuakks = sort(allQuacks);
 		return new Timeline(mergedQuakks);
+	}
+
+	private Quakk[] sort (final List<Quakk> allQuacks) {
+		return allQuacks.stream().sorted((o1, o2) -> o1.dateTime().compare(o2.dateTime())).collect(Collectors.toList()).toArray(new Quakk[0]);
 	}
 
 	private List<Quakk> concatQuacks (final Timeline another) {
