@@ -1,22 +1,14 @@
 package com.codurance.test.quakker;
 
 public class Commands {
-	private final QuakkRepository repository;
-	private final Output output;
 	private final Rules rules;
 
 	public Commands (final QuakkRepository repository, final Output output) {
-		this.repository = repository;
-		this.output = output;
-		this.rules = new Rules(new Posting(), new Reading());
+		this.rules = new Rules(new Posting(repository), new Reading(output, repository));
 	}
 
 	public void applyFrom (final String representation) {
-		if (representation.contains("->")) {
-			repository.save(new QuakkCommandParser(representation).parse());
-		} else {
-			output.show(repository.list(new User(representation)));
-		}
+		rules.applyTo(representation);
 	}
 
 	private class QuakkCommandParser {
@@ -36,19 +28,67 @@ public class Commands {
 	}
 
 	private class Rules {
+		private final Rule[] rules;
+
 		public Rules (final Rule... rules) {
+			this.rules = rules;
 		}
 
+		private void applyTo (final String representation) {
+			for (Rule rule : rules) {
+				if (rule.appliesTo(representation)) {
+					rule.apply(representation);
+					break;
+				}
+			}
+		}
 	}
 
 	private interface Rule {
+		void apply (final String representation);
+
+		boolean appliesTo (String representation);
 	}
 
 	private class Posting implements Rule {
 
+		private final QuakkRepository repository;
+
+		public Posting (final QuakkRepository repository) {
+
+			this.repository = repository;
+		}
+
+		@Override
+		public void apply (final String representation) {
+			repository.save(new QuakkCommandParser(representation).parse());
+		}
+
+		@Override
+		public boolean appliesTo (final String representation) {
+			return representation.contains("->");
+		}
 	}
 
 	private class Reading implements Rule {
-		
+
+		private final Output output;
+		private final QuakkRepository repository;
+
+		public Reading (final Output output, final QuakkRepository repository) {
+			this.output = output;
+			this.repository = repository;
+		}
+
+		@Override
+		public void apply (final String representation) {
+			output.show(repository.list(new User(representation)));
+		}
+
+		@Override
+		public boolean appliesTo (final String representation) {
+			return true;
+		}
+
 	}
 }
