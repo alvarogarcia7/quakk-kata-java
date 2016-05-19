@@ -1,8 +1,8 @@
 package com.codurance.test.quakker.application;
 
-import com.codurance.test.quakker.domain.Clock;
-import com.codurance.test.quakker.domain.Output;
-import com.codurance.test.quakker.domain.QuakkRepository;
+import com.codurance.test.quakker.core.ports.Clock;
+import com.codurance.test.quakker.core.ports.Output;
+import com.codurance.test.quakker.core.ports.QuakkRepository;
 import com.codurance.test.quakker.rules.Posting;
 import com.codurance.test.quakker.rules.Reading;
 import com.codurance.test.quakker.rules.Rules;

@@ -1,9 +1,9 @@
 package com.codurance.test.quakker.rules;
 
-import com.codurance.test.quakker.domain.Clock;
-import com.codurance.test.quakker.domain.Output;
-import com.codurance.test.quakker.domain.QuakkRepository;
-import com.codurance.test.quakker.domain.User;
+import com.codurance.test.quakker.core.ports.Clock;
+import com.codurance.test.quakker.core.ports.Output;
+import com.codurance.test.quakker.core.ports.QuakkRepository;
+import com.codurance.test.quakker.core.User;
 
 public class Reading implements Rule {
 
