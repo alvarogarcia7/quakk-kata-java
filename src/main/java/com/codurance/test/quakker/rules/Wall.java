@@ -1,4 +1,9 @@
-package com.codurance.test.quakker;
+package com.codurance.test.quakker.rules;
+
+import com.codurance.test.quakker.Output;
+import com.codurance.test.quakker.QuakkRepository;
+import com.codurance.test.quakker.Timeline;
+import com.codurance.test.quakker.User;
 
 import java.util.List;
 

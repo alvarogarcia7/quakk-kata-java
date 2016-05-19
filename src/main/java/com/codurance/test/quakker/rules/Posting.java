@@ -1,6 +1,12 @@
-package com.codurance.test.quakker;
+package com.codurance.test.quakker.rules;
 
-class Posting implements Rule {
+import com.codurance.test.quakker.Clock;
+import com.codurance.test.quakker.Quakk;
+import com.codurance.test.quakker.QuakkBuilder;
+import com.codurance.test.quakker.QuakkRepository;
+import com.codurance.test.quakker.User;
+
+public class Posting implements Rule {
 
 	public static final String KEYWORD_CREATION = " -> ";
 	private final QuakkRepository repository;

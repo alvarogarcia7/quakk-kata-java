@@ -1,6 +1,6 @@
-package com.codurance.test.quakker;
+package com.codurance.test.quakker.rules;
 
-class Rules {
+public class Rules {
 	private final Rule[] rules;
 
 	public Rules (final Rule... rules) {

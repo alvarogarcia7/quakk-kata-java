@@ -1,4 +1,7 @@
-package com.codurance.test.quakker;
+package com.codurance.test.quakker.rules;
+
+import com.codurance.test.quakker.QuakkRepository;
+import com.codurance.test.quakker.User;
 
 public class Subscribing implements Rule {
 	private final QuakkRepository repository;

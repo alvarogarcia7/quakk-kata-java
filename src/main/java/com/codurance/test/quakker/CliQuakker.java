@@ -1,5 +1,11 @@
 package com.codurance.test.quakker;
 
+import com.codurance.test.quakker.rules.Posting;
+import com.codurance.test.quakker.rules.Reading;
+import com.codurance.test.quakker.rules.Rules;
+import com.codurance.test.quakker.rules.Subscribing;
+import com.codurance.test.quakker.rules.Wall;
+
 public class CliQuakker {
 
 	private final Rules rules;
