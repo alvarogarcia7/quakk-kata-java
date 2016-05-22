@@ -6,6 +6,7 @@ import com.codurance.test.quakker.core.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class InMemoryQuakkRepository implements QuakkRepository {
@@ -19,8 +20,13 @@ public class InMemoryQuakkRepository implements QuakkRepository {
 
 	@Override
 	public Timeline wall (final User user) {
-		final List<Quakk> matchingQuakks = quakks.stream().filter(x -> x.owner().equals(user)).collect(Collectors.toList());
+		final Predicate<Quakk> sameOwner = x -> x.owner().equals(user);
+		final List<Quakk> matchingQuakks = filterBy(sameOwner);
 		return toTimeline(matchingQuakks);
+	}
+
+	private List<Quakk> filterBy (final Predicate<Quakk> sameOwner) {
+		return quakks.stream().filter(sameOwner).collect(Collectors.toList());
 	}
 
 	private Timeline toTimeline (final List<Quakk> quakks) {
