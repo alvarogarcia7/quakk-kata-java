@@ -17,6 +17,12 @@ public class DateDifferenceFormatterShould {
 		dateDifferenceFormatter = new DateDifferenceFormatter();
 	}
 
+
+	@Test
+	public void calculate_nonexisting_difference() {
+		assertThat(differenceBetween("00:00:00", "00:00:00"), is("just now"));
+	}
+
 	@Test
 	public void calculate_a_single_second_difference () {
 		assertThat(differenceBetween("00:00:00", "00:00:01"), is("1 second ago"));
