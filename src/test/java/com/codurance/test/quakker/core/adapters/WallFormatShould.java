@@ -43,16 +43,17 @@ public class WallFormatShould {
 	}
 
 	@Test
-	public void format_quakks () {
+	public void format_quakks_some_seconds_ago () {
 
 		format = new WallFormat(clock);
 
 		context.checking(new Expectations() {{
-			oneOf(clock).now(); will(returnValue(new DateTime("21:10:00")));
+			oneOf(clock).now(); will(returnValue(new DateTime("21:10:20")));
 		}});
 
-		final String formatted = format.format(Quakk.QuakkBuilder.aNew("message").from(new User("user")).at(new
-				DateTime("21:00:20"))
+		final String formatted = format.format(Quakk.QuakkBuilder
+				.aNew("message")
+				.from(new User("user")).at(new DateTime("21:10:00"))
 				.build());
 
 		assertThat(formatted, is("user - message (20 seconds ago)"));

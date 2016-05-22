@@ -8,14 +8,22 @@ import java.time.format.DateTimeParseException;
 public class DateTime {
 	private final LocalTime value;
 
-	public DateTime (final String representation) {
+	public DateTime (String representation) {
 		LocalTime value1;
 		try {
+			representation = obtainDateWithSeconds(representation);
 			value1 = LocalTime.parse(representation, DateTimeFormatter.ofPattern("H:m:ss"));
 		} catch (DateTimeParseException e) {
-			value1 = LocalTime.parse(representation, DateTimeFormatter.ofPattern("H:m"));
+			throw new RuntimeException(e);
 		}
 		value = value1;
+	}
+
+	private String obtainDateWithSeconds (String representation) {
+		if (representation.length() < 7) {
+			representation = representation + ":00";
+		}
+		return representation;
 	}
 
 	public String toString () {
