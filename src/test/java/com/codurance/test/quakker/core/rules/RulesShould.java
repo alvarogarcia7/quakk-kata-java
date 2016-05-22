@@ -15,7 +15,7 @@ public class RulesShould {
 	}
 
 	@Test
-	public void not_advance_when_a_rule_applies () {
+	public void stop_when_the_first_rule_applies () {
 
 		final String representation = "A";
 		final Rule ruleThatApplies = context.mock(Rule.class, "ruleThatApplies");
