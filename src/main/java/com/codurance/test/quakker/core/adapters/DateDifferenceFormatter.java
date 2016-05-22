@@ -13,8 +13,9 @@ public class DateDifferenceFormatter {
 			}
 			return "1 minute ago";
 		}
-		if (duration.toMillis() > 1000) {
-			return String.format("%d seconds ago", duration.toMillis() / 1_000);
+		final long seconds = duration.toMillis() / 1_000;
+		if (seconds > 1) {
+			return String.format("%d seconds ago", seconds);
 		}
 		return "1 second ago";
 	}
