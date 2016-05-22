@@ -9,11 +9,11 @@ import com.codurance.test.quakker.core.rules.Rules;
 import com.codurance.test.quakker.core.rules.Following;
 import com.codurance.test.quakker.core.rules.Wall;
 
-public class CliQuakker {
+public class QuakkerClient {
 
 	private final Rules rules;
 
-	public CliQuakker (final QuakkRepository repository, final Output output, final Clock clock) {
+	public QuakkerClient (final QuakkRepository repository, final Output output, final Clock clock) {
 		this.rules = new Rules(
 				new Posting(repository, clock),
 				new Following(repository),

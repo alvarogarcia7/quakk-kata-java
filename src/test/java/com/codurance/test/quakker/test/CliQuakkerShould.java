@@ -1,6 +1,6 @@
 package com.codurance.test.quakker.test;
 
-import com.codurance.test.quakker.application.CliQuakker;
+import com.codurance.test.quakker.application.QuakkerClient;
 import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.domain.DateTime;
 import com.codurance.test.quakker.core.ports.Output;
@@ -18,7 +18,7 @@ import java.util.Arrays;
 public class CliQuakkerShould {
 
 	private Mockery context;
-	private CliQuakker cli;
+	private QuakkerClient cli;
 	private QuakkRepository repository;
 	private Output output;
 	private Clock clock;
@@ -29,7 +29,7 @@ public class CliQuakkerShould {
 		repository = context.mock(QuakkRepository.class);
 		output = context.mock(Output.class);
 		clock = context.mock(Clock.class);
-		cli = new CliQuakker(repository, output, clock);
+		cli = new QuakkerClient(repository, output, clock);
 	}
 
 	@Test
