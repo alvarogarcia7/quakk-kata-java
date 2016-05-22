@@ -1,27 +1,33 @@
 package com.codurance.test.quakker.core.domain;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class DateTime {
-	private final Date value;
+	private final LocalTime value;
 
 	public DateTime (final String representation) {
+		LocalTime value1;
 		try {
-			value = new SimpleDateFormat("HH:MM").parse(representation);
-		} catch (ParseException e) {
-			throw new RuntimeException(e);
+			value1 = LocalTime.parse(representation, DateTimeFormatter.ofPattern("H:m:ss"));
+		} catch (DateTimeParseException e) {
+			value1 = LocalTime.parse(representation, DateTimeFormatter.ofPattern("H:m"));
 		}
+		value = value1;
 	}
 
-	private DateTime (final Date value) {
+	private DateTime (final LocalTime value) {
 		this.value = value;
 	}
 
 	public static DateTime now () {
-		return new DateTime(Date.from(Instant.now()));
+		Instant instant = LocalTime.now().atDate(LocalDate.MIN).
+				atZone(ZoneId.systemDefault()).toInstant();
+		return new DateTime(LocalTime.now());
 	}
 
 	public String toString () {
@@ -49,5 +55,9 @@ public class DateTime {
 
 	public int compare (final DateTime other) {
 		return this.value.compareTo(other.value);
+	}
+
+	public LocalTime value () {
+		return value;
 	}
 }
