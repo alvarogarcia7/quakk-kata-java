@@ -19,7 +19,8 @@ public class InMemoryQuakkRepository implements QuakkRepository {
 
 	@Override
 	public Timeline wall (final User user) {
-		return new Timeline(quakks.stream().filter(x->x.owner().equals(user)).collect(Collectors.toList()).toArray(new
+		final List<Quakk> matchingQuakks = quakks.stream().filter(x -> x.owner().equals(user)).collect(Collectors.toList());
+		return new Timeline(matchingQuakks.toArray(new
 				Quakk[0]));
 	}
 
