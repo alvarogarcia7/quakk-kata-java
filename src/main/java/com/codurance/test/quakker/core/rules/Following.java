@@ -1,5 +1,6 @@
 package com.codurance.test.quakker.core.rules;
 
+import com.codurance.test.quakker.core.Limitations;
 import com.codurance.test.quakker.core.domain.User;
 import com.codurance.test.quakker.core.ports.QuakkRepository;
 
@@ -16,6 +17,7 @@ public class Following implements Rule {
 	@Override
 	public void apply (final String representation) {
 		final String[] values = representation.split(TOKEN);
+		Limitations.userNamesCannotContainSpaces(representation);
 		final User whoFollows = new User(values[0]);
 		final User followingTo = new User(values[1]);
 		repository.follow(whoFollows, followingTo);
