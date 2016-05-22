@@ -15,7 +15,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class CliQuakkerShould {
+public class QuakkerClientShould {
 
 	private Mockery context;
 	private QuakkerClient cli;
