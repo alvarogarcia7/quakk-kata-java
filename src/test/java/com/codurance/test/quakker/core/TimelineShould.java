@@ -7,6 +7,7 @@ import com.codurance.test.quakker.core.domain.User;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.Is.is;
 
 public class TimelineShould {
@@ -24,6 +25,13 @@ public class TimelineShould {
 	@Test
 	public void the_timeline_is_sorted_by_date () {
 		assertThat(new Timeline(quakk2, quakk1, quakk3), is(new Timeline(quakk1, quakk2, quakk3)));
+	}
+
+	@Test
+	public void two_timelines_are_not_equal_based_on_the_quakks () {
+		final Quakk a = Quakk.QuakkBuilder.aNew("message1").from(new User("user")).at(new DateTime("22:00")).build();
+		final Quakk b = Quakk.QuakkBuilder.aNew("message2").from(new User("user")).at(new DateTime("22:00")).build();
+		assertThat(new Timeline(a), is(not(new Timeline(a,b))));
 	}
 
 
