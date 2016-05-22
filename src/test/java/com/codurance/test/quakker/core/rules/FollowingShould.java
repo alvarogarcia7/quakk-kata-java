@@ -1,5 +1,6 @@
 package com.codurance.test.quakker.core.rules;
 
+import com.codurance.test.quakker.core.domain.User;
 import com.codurance.test.quakker.core.ports.QuakkRepository;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
@@ -24,12 +25,21 @@ public class FollowingShould {
 	@Test
 	public void do_not_detect_the_keyword_in_the_middle () {
 
-		context.checking(new Expectations() {{
-
-		}});
 
 		assertThat(new Following(repository).appliesTo("John -> Your shadow is your best mate: it follows you " +
 				"wherever you go."), is(false));
+
+		context.assertIsSatisfied();
+	}
+
+
+	@Test
+	public void can_follow_a_user_named_as_the_keyword () {
+		context.checking(new Expectations() {{
+			oneOf(repository).follow(new User("John"), new User("follows"));
+		}});
+
+		new Following(repository).apply("John follows follows");
 
 		context.assertIsSatisfied();
 	}
