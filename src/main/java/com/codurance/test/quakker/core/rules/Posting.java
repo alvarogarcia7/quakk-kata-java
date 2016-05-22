@@ -23,14 +23,40 @@ public class Posting implements Rule {
 	}
 
 	private Quakk parseQuack (final String representation) {
-		final String[] parts = representation.split(KEYWORD_CREATION, 2);
-		final User user = new User(parts[0]);
-		final Quakk quakk = Quakk.QuakkBuilder.aNew(parts[1]).from(user).at(clock.now()).build();
+		QuakkMessageSplitter quakkMessageSplitter = new QuakkMessageSplitter(representation).invoke();
+		String message = quakkMessageSplitter.getMessage();
+		User user = quakkMessageSplitter.getUser();
+		final Quakk quakk = Quakk.QuakkBuilder.aNew(message).from(user).at(clock.now()).build();
 		return quakk;
 	}
 
 	@Override
 	public boolean appliesTo (final String representation) {
 		return representation.contains(KEYWORD_CREATION);
+	}
+
+	private class QuakkMessageSplitter {
+		private final String representation;
+		private User user;
+		private String message;
+
+		public QuakkMessageSplitter (final String representation) {
+			this.representation = representation;
+		}
+
+		public User getUser () {
+			return user;
+		}
+
+		public String getMessage () {
+			return message;
+		}
+
+		public QuakkMessageSplitter invoke () {
+			final String[] parts = representation.split(KEYWORD_CREATION, 2);
+			user = new User(parts[0]);
+			message = parts[1];
+			return this;
+		}
 	}
 }
