@@ -1,6 +1,6 @@
 package com.codurance.test.quakker.core;
 
-public class Limitations {
+public class KnownLimitations {
 	public static void userNamesCannotContainSpaces (final String value) {
 
 	}

@@ -1,6 +1,6 @@
 package com.codurance.test.quakker.core.rules;
 
-import com.codurance.test.quakker.core.Limitations;
+import com.codurance.test.quakker.core.KnownLimitations;
 import com.codurance.test.quakker.core.domain.User;
 import com.codurance.test.quakker.core.ports.QuakkRepository;
 import org.jmock.Expectations;
@@ -50,7 +50,7 @@ public class FollowingShould {
 	@Ignore("the product owner has discarded this feature, therefore becoming a known limitation")
 	public void cannot_follow_a_user_with_spaces_in_the_username () {
 		final String representation = "John follows follows Michael follows";
-		Limitations.userNamesCannotContainSpaces(representation);
+		KnownLimitations.userNamesCannotContainSpaces(representation);
 		new Following(repository).apply(representation);
 	}
 }
