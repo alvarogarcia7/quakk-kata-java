@@ -20,7 +20,12 @@ public class CLIQuakkerClient {
     }
 
     public void run () {
-        execute(input.read());
-        execute(input.read());
+        while (true) {
+            final String command = input.read();
+            if (command.equals("Stop!")) {
+                break;
+            }
+            execute(command);
+        }
     }
 }

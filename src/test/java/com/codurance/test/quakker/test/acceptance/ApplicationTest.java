@@ -33,9 +33,10 @@ public class ApplicationTest {
     public void should_execute_two_commands_in_a_row() {
 
         context.checking(new Expectations() {{
-            exactly(2).of(input).read(); will(onConsecutiveCalls(
+            exactly(3).of(input).read(); will(onConsecutiveCalls(
                     returnValue("John -> first quakk!"),
-                    returnValue("John wall")
+                    returnValue("John wall"),
+                    returnValue("Stop!")
             ));
             allowing(clock).now(); will(onConsecutiveCalls(
                     returnValue(new DateTime("21:28")),
@@ -53,7 +54,7 @@ public class ApplicationTest {
     public void should_execute_commands_until_finding_the_keyword() {
 
         context.checking(new Expectations() {{
-            exactly(2).of(input).read(); will(onConsecutiveCalls(
+            exactly(4).of(input).read(); will(onConsecutiveCalls(
                     returnValue("John -> first quakk!"),
                     returnValue("John wall"),
                     returnValue("John wall"),
