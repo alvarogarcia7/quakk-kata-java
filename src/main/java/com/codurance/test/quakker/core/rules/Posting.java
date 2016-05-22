@@ -23,7 +23,7 @@ public class Posting implements Rule {
 	}
 
 	private Quakk parseQuack (final String representation) {
-		final String[] parts = representation.split(KEYWORD_CREATION);
+		final String[] parts = representation.split(KEYWORD_CREATION, 2);
 		final User user = new User(parts[0]);
 		final Quakk quakk = Quakk.QuakkBuilder.aNew(parts[1]).from(user).at(clock.now()).build();
 		return quakk;
