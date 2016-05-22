@@ -1,5 +1,6 @@
 package com.codurance.test.quakker.core.domain;
 
+import java.time.Duration;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -46,5 +47,11 @@ public class DateTime {
 
 	public LocalTime value () {
 		return value;
+	}
+
+	public Duration minus (final DateTime start) {
+		final DateTime end = this;
+
+		return Duration.between(start.value, end.value);
 	}
 }

@@ -30,4 +30,8 @@ public class User {
 	public int hashCode () {
 		return name != null ? name.hashCode() : 0;
 	}
+
+	public String name () {
+		return name;
+	}
 }

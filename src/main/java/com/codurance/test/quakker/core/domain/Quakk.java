@@ -1,5 +1,9 @@
 package com.codurance.test.quakker.core.domain;
 
+import com.codurance.test.quakker.core.ports.Clock;
+
+import java.time.Duration;
+
 public class Quakk {
 	private final String message;
 	private final User owner;
@@ -48,6 +52,14 @@ public class Quakk {
 
 	public User owner () {
 		return owner;
+	}
+
+	public String message () {
+		return message;
+	}
+
+	public Duration since (final Clock clock) {
+		return clock.now().minus(dateTime);
 	}
 
 	public static class QuakkBuilder {

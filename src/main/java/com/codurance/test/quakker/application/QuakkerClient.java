@@ -17,8 +17,8 @@ public class QuakkerClient {
 		this.rules = new Rules(
 				new Posting(repository, clock),
 				new Following(repository),
-				new Wall(repository, output),
-				new Reading(output, repository)
+				new Wall(repository, output, clock),
+				new Reading(output, repository, clock)
 		);
 	}
 

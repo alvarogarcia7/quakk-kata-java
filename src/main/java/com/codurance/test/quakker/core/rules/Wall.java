@@ -1,5 +1,7 @@
 package com.codurance.test.quakker.core.rules;
 
+import com.codurance.test.quakker.core.adapters.WallFormat;
+import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.ports.Output;
 import com.codurance.test.quakker.core.ports.QuakkRepository;
 import com.codurance.test.quakker.core.domain.Timeline;
@@ -11,18 +13,19 @@ public class Wall implements Rule {
 	public static final String TOKEN = " wall";
 	private final QuakkRepository repository;
 	private final Output output;
+	private Clock clock;
 
-	public Wall (final QuakkRepository repository, final Output output) {
+	public Wall (final QuakkRepository repository, final Output output, final Clock clock) {
 		this.repository = repository;
 		this.output = output;
+		this.clock = clock;
 	}
 
 	@Override
 	public void apply (final String representation) {
 		final User currentUser = parseUser(representation);
 		Timeline currentWall = obtainWall(currentUser);
-
-		output.show(currentWall);
+		currentWall.printAt(output, new WallFormat(clock));
 	}
 
 	private Timeline obtainWall (final User currentUser) {

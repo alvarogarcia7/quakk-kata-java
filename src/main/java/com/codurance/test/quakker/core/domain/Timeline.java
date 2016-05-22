@@ -1,5 +1,8 @@
 package com.codurance.test.quakker.core.domain;
 
+import com.codurance.test.quakker.core.ports.Format;
+import com.codurance.test.quakker.core.ports.Output;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -63,4 +66,9 @@ public class Timeline {
 		return sb.toString();
 	}
 
+	public void printAt (final Output output, final Format format) {
+		for (Quakk quakk : quakks) {
+			output.print(format.format(quakk));
+		}
+	}
 }

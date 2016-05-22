@@ -60,10 +60,12 @@ public class CliQuakkerShould {
 		);
 
 		context.checking(new Expectations() {{
+			allowing(clock).now(); will(returnValue(new DateTime("23:15")));
 			oneOf(repository).wall(user);
 			will(returnValue(userTimeline));
 
-			oneOf(output).show(userTimeline);
+			oneOf(output).print("Good game though. (15 minutes ago)");
+			oneOf(output).print("Damn! We lost! (15 minutes ago)");
 		}});
 
 		cli.execute("Bob");
@@ -82,10 +84,12 @@ public class CliQuakkerShould {
 		);
 
 		context.checking(new Expectations() {{
+			allowing(clock).now(); will(returnValue(new DateTime("23:15")));
 			oneOf(repository).wall(user); will(returnValue(userTimeline));
 			ignoring(repository);
 
-			oneOf(output).show(userTimeline);
+			oneOf(output).print("Charlie - Good game though. (15 minutes ago)");
+			oneOf(output).print("Charlie - Damn! We lost! (15 minutes ago)");
 		}});
 
 		cli.execute("Charlie wall");
@@ -126,11 +130,13 @@ public class CliQuakkerShould {
 		);
 
 		context.checking(new Expectations() {{
+			allowing(clock).now(); will(returnValue(new DateTime("22:30")));
 			oneOf(repository).followedBy(charlie); will(returnValue(Arrays.asList(bob)));
 			oneOf(repository).wall(bob); will(returnValue(bobTimeline));
 			oneOf(repository).wall(charlie); will(returnValue(charlieTimeline));
 
-			oneOf(output).show(mergedTimeline);
+			oneOf(output).print("Bob - Hello World (100 minutes ago)");
+			oneOf(output).print("Charlie - First Quakk! (40 minutes ago)");
 		}});
 
 		cli.execute("Charlie wall");
