@@ -29,8 +29,16 @@ public class TimelineShould {
 
 	@Test
 	public void two_timelines_are_not_equal_based_on_the_quakks () {
-		final Quakk a = Quakk.QuakkBuilder.aNew("message1").from(new User("user")).at(new DateTime("22:00")).build();
-		final Quakk b = Quakk.QuakkBuilder.aNew("message2").from(new User("user")).at(new DateTime("22:00")).build();
+		final Quakk a = Quakk.QuakkBuilder
+				.aNew("message1")
+				.from(new User("user"))
+				.at(new DateTime("22:00"))
+				.build();
+		final Quakk b = Quakk.QuakkBuilder
+				.aNew("message2")
+				.from(new User("user"))
+				.at(new DateTime("22:00"))
+				.build();
 		assertThat(new Timeline(a), is(not(new Timeline(a,b))));
 	}
 
