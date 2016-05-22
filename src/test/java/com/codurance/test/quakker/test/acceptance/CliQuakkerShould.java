@@ -124,11 +124,6 @@ public class CliQuakkerShould {
 				Quakk.QuakkBuilder.aNew("Hello World").from(bob).at(new DateTime("20:50")).build()
 		);
 
-		final Timeline mergedTimeline = new Timeline(
-				Quakk.QuakkBuilder.aNew("Hello World").from(bob).at(new DateTime("20:50")).build(),
-				Quakk.QuakkBuilder.aNew("First Quakk!").from(charlie).at(new DateTime("21:50")).build()
-		);
-
 		context.checking(new Expectations() {{
 			allowing(clock).now(); will(returnValue(new DateTime("22:30")));
 			oneOf(repository).followedBy(charlie); will(returnValue(Arrays.asList(bob)));
