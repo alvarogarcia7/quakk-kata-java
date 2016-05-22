@@ -18,7 +18,7 @@ public class CliQuakker {
 				new Posting(repository, clock),
 				new Subscribing(repository),
 				new Wall(repository, output),
-				new Reading(output, repository, clock)
+				new Reading(output, repository)
 		);
 	}
 
