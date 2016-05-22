@@ -9,11 +9,15 @@ public class CLIQuakkerClient {
 
     private final QuakkerClient client;
 
-    public CLIQuakkerClient (final QuakkRepository repository, final Output output, final Clock clock) {
+    public CLIQuakkerClient (final QuakkRepository repository, final Output output, final Clock clock, final Input input) {
         this.client = new QuakkerClient(repository, output, clock);
     }
 
     public void execute (final String commandRepresentation) {
         this.client.execute(commandRepresentation);
+    }
+
+    public void run () {
+
     }
 }
