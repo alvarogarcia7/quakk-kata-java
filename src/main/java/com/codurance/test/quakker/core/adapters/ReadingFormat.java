@@ -22,8 +22,6 @@ public class ReadingFormat implements Format {
 	}
 
 	private String formatTime (final Duration duration) {
-		final long seconds = duration.toMillis() / 1000;
-		final long minutes = seconds / 60;
-		return String.format("%d minutes ago", minutes);
+		return new DateDifferenceFormatter().difference(duration);
 	}
 }

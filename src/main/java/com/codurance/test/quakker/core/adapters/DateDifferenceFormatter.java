@@ -1,12 +1,9 @@
 package com.codurance.test.quakker.core.adapters;
 
-import com.codurance.test.quakker.core.domain.DateTime;
-
 import java.time.Duration;
 
 public class DateDifferenceFormatter {
-	public String difference (final DateTime start, final DateTime end) {
-		final Duration duration = end.minus(start);
+	public String difference (final Duration duration) {
 		final long hours = duration.toHours();
 		final long minutes = duration.toMinutes();
 		final long seconds = duration.toMillis() / 1_000;

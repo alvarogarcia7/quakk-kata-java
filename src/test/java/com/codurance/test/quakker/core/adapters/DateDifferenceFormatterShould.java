@@ -59,7 +59,7 @@ public class DateDifferenceFormatterShould {
 	private String differenceBetween (final String startRepresentation, final String endRepresentation) {
 		final DateTime start = new DateTime(startRepresentation);
 		final DateTime end = new DateTime(endRepresentation);
-		return dateDifferenceFormatter.difference(start, end);
+		return dateDifferenceFormatter.difference(end.minus(start));
 	}
 
 }
