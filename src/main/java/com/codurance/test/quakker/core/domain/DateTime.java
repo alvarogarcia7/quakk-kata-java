@@ -21,10 +21,6 @@ public class DateTime {
 		this.value = value;
 	}
 
-	public static DateTime now () {
-		return new DateTime(LocalTime.now());
-	}
-
 	public String toString () {
 		final StringBuffer sb = new StringBuffer("DateTime{");
 		sb.append("value=").append(value);
