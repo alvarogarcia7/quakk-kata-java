@@ -23,9 +23,9 @@ public class Posting implements Rule {
 	}
 
 	private Quakk parseQuack (final String representation) {
-		QuakkMessageSplitter quakkMessageSplitter = new QuakkMessageSplitter(representation).invoke();
-		String message = quakkMessageSplitter.getMessage();
-		User user = quakkMessageSplitter.getUser();
+		QuakkMessageSplitter messageSplitter = new QuakkMessageSplitter(representation).invoke();
+		String message = messageSplitter.getMessage();
+		User user = messageSplitter.getUser();
 		final Quakk quakk = Quakk.QuakkBuilder.aNew(message).from(user).at(clock.now()).build();
 		return quakk;
 	}
