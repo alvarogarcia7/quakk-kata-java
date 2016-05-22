@@ -1,9 +1,6 @@
 package com.codurance.test.quakker.core.domain;
 
-import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
@@ -25,8 +22,6 @@ public class DateTime {
 	}
 
 	public static DateTime now () {
-		Instant instant = LocalTime.now().atDate(LocalDate.MIN).
-				atZone(ZoneId.systemDefault()).toInstant();
 		return new DateTime(LocalTime.now());
 	}
 
