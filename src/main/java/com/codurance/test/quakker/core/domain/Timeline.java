@@ -39,11 +39,14 @@ public class Timeline {
 
 		final Timeline timeline = (Timeline) o;
 
-		boolean isEqual = true;
-		for (int i = 0; i < quakks.length; i++) {
-			isEqual = isEqual && quakks[i].equals(timeline.quakks[i]);
+		if (quakks.length == timeline.quakks.length) {
+			boolean isEqual = true;
+			for (int i = 0; i < quakks.length; i++) {
+				isEqual = isEqual && quakks[i].equals(timeline.quakks[i]);
+			}
+			return isEqual;
 		}
-		return isEqual;
+		return false;
 
 	}
 
