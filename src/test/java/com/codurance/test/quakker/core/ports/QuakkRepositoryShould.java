@@ -26,5 +26,18 @@ public abstract class QuakkRepositoryShould {
 		assertThat(repository.wall(user), is(new Timeline(quakk)));
 	}
 
+	@Test
+	public void store_multiple_quakks () {
+		repository = implementation();
+		final User user = new User("user");
+		final Quakk first = Quakk.QuakkBuilder.aNew("first").from(user).at(new DateTime("22:30")).build();
+		final Quakk second = Quakk.QuakkBuilder.aNew("second").from(user).at(new DateTime("23:30")).build();
+
+		repository.save(first);
+		repository.save(second);
+
+		assertThat(repository.wall(user), is(new Timeline(first, second)));
+	}
+
 
 }
