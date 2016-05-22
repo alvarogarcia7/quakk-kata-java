@@ -16,7 +16,7 @@ public class SystemClockShould {
 
 	@Test
 	public void has_second_precision () {
-		final DateTime fromSystem = new DateTime(new SimpleDateFormat("H:m:s").format(Date.from(Instant.now())));
+		final DateTime fromSystem = new DateTime(new SimpleDateFormat("HH:mm:ss").format(Date.from(Instant.now())));
 		final DateTime sut = new SystemClock().now();
 
 		assertThat(sut.value().minus(1, ChronoUnit.SECONDS).isBefore(fromSystem.value()), is(true));

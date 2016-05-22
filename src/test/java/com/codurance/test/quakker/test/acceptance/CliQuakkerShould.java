@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.test;
+package com.codurance.test.quakker.test.acceptance;
 
 import com.codurance.test.quakker.application.QuakkerClient;
 import com.codurance.test.quakker.core.ports.Clock;

@@ -10,6 +10,6 @@ import java.util.Date;
 public class SystemClock implements Clock{
 	@Override
 	public DateTime now () {
-		return new DateTime(new SimpleDateFormat("H:m:s").format(Date.from(Instant.now())));
+		return new DateTime(new SimpleDateFormat("HH:mm:ss").format(Date.from(Instant.now())));
 	}
 }
