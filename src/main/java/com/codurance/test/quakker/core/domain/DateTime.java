@@ -17,10 +17,6 @@ public class DateTime {
 		value = value1;
 	}
 
-	private DateTime (final LocalTime value) {
-		this.value = value;
-	}
-
 	public String toString () {
 		final StringBuffer sb = new StringBuffer("DateTime{");
 		sb.append("value=").append(value);
