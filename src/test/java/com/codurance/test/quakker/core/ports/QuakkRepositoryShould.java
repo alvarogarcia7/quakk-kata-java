@@ -7,6 +7,7 @@ import com.codurance.test.quakker.core.domain.User;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.core.Is.is;
 
 public abstract class QuakkRepositoryShould {
@@ -58,16 +59,21 @@ public abstract class QuakkRepositoryShould {
 		repository = implementation();
 		final User ann = new User("ann");
 		final User bob = new User("bob");
+		final User charles = new User("charles");
 		final Quakk anns = Quakk.QuakkBuilder.aNew("ann's first").from(ann).at(new DateTime("22:30")).build();
 		final Quakk bobs = Quakk.QuakkBuilder.aNew("bob's first").from(bob).at(new DateTime("22:30")).build();
+		final Quakk charless = Quakk.QuakkBuilder.aNew("charles' first").from(bob).at(new DateTime("22:30")).build();
 		repository.save(anns);
 		repository.save(bobs);
+		repository.save(charless);
 
 		//ann follows bob
 		repository.follow(ann, bob);
 
+		repository.follow(ann, charles);
 
-		assertThat(repository.wall(ann), is(new Timeline(anns, bobs)));
+
+		assertThat(repository.followedBy(ann), contains(bob, charles));
 	}
 
 
