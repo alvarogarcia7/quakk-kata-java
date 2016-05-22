@@ -18,7 +18,7 @@ public class TimelineShould {
 
 		final Quakk quakk1 = Quakk.QuakkBuilder.aNew("quakk1").from(ANY_USER).at(new DateTime("21:00")).build();
 		final Quakk quakk2 = Quakk.QuakkBuilder.aNew("quakk2").from(ANY_USER).at(new DateTime("22:00")).build();
-		final Quakk quakk3 = Quakk.QuakkBuilder.aNew("quakk3").from(ANY_USER).at(new DateTime("22:00")).build();
+		final Quakk quakk3 = Quakk.QuakkBuilder.aNew("quakk3").from(ANY_USER).at(new DateTime("23:00")).build();
 
 		assertThat(new Timeline(quakk1, quakk3).merge(new Timeline(quakk2)), is(new Timeline(quakk1, quakk2, quakk3)));
 	}
@@ -29,7 +29,7 @@ public class TimelineShould {
 
 		final Quakk quakk1 = Quakk.QuakkBuilder.aNew("quakk1").from(ANY_USER).at(new DateTime("21:00")).build();
 		final Quakk quakk2 = Quakk.QuakkBuilder.aNew("quakk2").from(ANY_USER).at(new DateTime("22:00")).build();
-		final Quakk quakk3 = Quakk.QuakkBuilder.aNew("quakk3").from(ANY_USER).at(new DateTime("22:00")).build();
+		final Quakk quakk3 = Quakk.QuakkBuilder.aNew("quakk3").from(ANY_USER).at(new DateTime("23:00")).build();
 
 		assertThat(new Timeline(quakk2, quakk1, quakk3), is(new Timeline(quakk1, quakk2, quakk3)));
 	}
