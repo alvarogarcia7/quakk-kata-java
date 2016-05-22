@@ -7,6 +7,9 @@ import java.time.Duration;
 public class DateDifferenceFormatter {
 	public String difference (final DateTime start, final DateTime end) {
 		final Duration duration = end.minus(start);
+		if (duration.toHours() > 0) {
+			return "1 hour ago";
+		}
 		if (duration.toMinutes() > 0) {
 			if (duration.toMinutes() > 1) {
 				return String.format("%d minutes ago", duration.toMinutes());
