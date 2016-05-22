@@ -46,6 +46,10 @@ public class Quakk {
 		return result;
 	}
 
+	public User owner () {
+		return owner;
+	}
+
 	public static class QuakkBuilder {
 		private String message;
 		private User owner;

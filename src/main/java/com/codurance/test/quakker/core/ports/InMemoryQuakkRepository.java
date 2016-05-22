@@ -6,6 +6,7 @@ import com.codurance.test.quakker.core.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class InMemoryQuakkRepository implements QuakkRepository {
 
@@ -18,7 +19,8 @@ public class InMemoryQuakkRepository implements QuakkRepository {
 
 	@Override
 	public Timeline wall (final User user) {
-		return new Timeline(quakks.toArray(new Quakk[0]));
+		return new Timeline(quakks.stream().filter(x->x.owner().equals(user)).collect(Collectors.toList()).toArray(new
+				Quakk[0]));
 	}
 
 	@Override
