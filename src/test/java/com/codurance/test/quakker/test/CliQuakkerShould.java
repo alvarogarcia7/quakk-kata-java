@@ -53,9 +53,10 @@ public class CliQuakkerShould {
 	public void review_someone_elses_timeline () {
 
 		final User user = new User("Bob");
+		final DateTime time = new DateTime("23:00");
 		final Timeline userTimeline = new Timeline(
-				Quakk.QuakkBuilder.aNew("Good game though.").from(user).build(),
-				Quakk.QuakkBuilder.aNew("Damn! We lost!").from(user).build()
+				Quakk.QuakkBuilder.aNew("Good game though.").from(user).at(time).build(),
+				Quakk.QuakkBuilder.aNew("Damn! We lost!").from(user).at(time).build()
 		);
 
 		context.checking(new Expectations() {{
@@ -74,9 +75,10 @@ public class CliQuakkerShould {
 	public void review_my_timeline () {
 
 		final User user = new User("Charlie");
+		final DateTime time = new DateTime("23:00");
 		final Timeline userTimeline = new Timeline(
-				Quakk.QuakkBuilder.aNew("Good game though.").from(user).build(),
-				Quakk.QuakkBuilder.aNew("Damn! We lost!").from(user).build()
+				Quakk.QuakkBuilder.aNew("Good game though.").from(user).at(time).build(),
+				Quakk.QuakkBuilder.aNew("Damn! We lost!").from(user).at(time).build()
 		);
 
 		context.checking(new Expectations() {{
