@@ -31,4 +31,21 @@ public class RulesShould {
 		context.assertIsSatisfied();
 	}
 
+	@Test
+	public void apply_rules_in_order () {
+
+		final String representation = "A";
+		final Rule ruleThatApplies = context.mock(Rule.class, "ruleThatApplies");
+		final Rule ruleThatDoesNotApply = context.mock(Rule.class, "ruleThatDoesNotApply");
+		context.checking(new Expectations() {{
+			oneOf(ruleThatApplies).appliesTo(representation); will(returnValue(true));
+			oneOf(ruleThatApplies).apply(representation);
+		}});
+
+		new Rules(ruleThatApplies, ruleThatDoesNotApply).applyTo(representation);
+
+
+		context.assertIsSatisfied();
+	}
+
 }
