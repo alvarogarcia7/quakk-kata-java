@@ -1,7 +1,9 @@
 package com.codurance.test.quakker.core.rules;
 
-import com.codurance.test.quakker.core.ports.QuakkRepository;
 import com.codurance.test.quakker.core.domain.User;
+import com.codurance.test.quakker.core.ports.QuakkRepository;
+
+import java.util.regex.Pattern;
 
 public class Following implements Rule {
 	public static final String TOKEN = " follows ";
@@ -21,6 +23,11 @@ public class Following implements Rule {
 
 	@Override
 	public boolean appliesTo (final String representation) {
-		return representation.contains(TOKEN);
+		return containsToken(representation);
+	}
+
+	private boolean containsToken (final String representation) {
+		final Pattern pattern = Pattern.compile("[\\w]+" + TOKEN + ".*");
+		return pattern.matcher(representation).matches();
 	}
 }
