@@ -22,9 +22,12 @@ public class DateDifferenceFormatter {
 			}
 			return "1 minute ago";
 		}
-		if (seconds > 1) {
-			return String.format("%d seconds ago", seconds);
+		if (seconds > 0) {
+			if (seconds > 1) {
+				return String.format("%d seconds ago", seconds);
+			}
+			return "1 second ago";
 		}
-		return "1 second ago";
+		return "just now";
 	}
 }
