@@ -6,7 +6,7 @@ import com.codurance.test.quakker.core.ports.QuakkRepository;
 import com.codurance.test.quakker.core.rules.Posting;
 import com.codurance.test.quakker.core.rules.Reading;
 import com.codurance.test.quakker.core.rules.Rules;
-import com.codurance.test.quakker.core.rules.Subscribing;
+import com.codurance.test.quakker.core.rules.Following;
 import com.codurance.test.quakker.core.rules.Wall;
 
 public class CliQuakker {
@@ -16,7 +16,7 @@ public class CliQuakker {
 	public CliQuakker (final QuakkRepository repository, final Output output, final Clock clock) {
 		this.rules = new Rules(
 				new Posting(repository, clock),
-				new Subscribing(repository),
+				new Following(repository),
 				new Wall(repository, output),
 				new Reading(output, repository)
 		);
