@@ -53,5 +53,22 @@ public abstract class QuakkRepositoryShould {
 		assertThat(repository.wall(ann), is(new Timeline(anns)));
 	}
 
+	@Test
+	public void shows_other_quakks_on_the_timeline_when_following_others () {
+		repository = implementation();
+		final User ann = new User("ann");
+		final User bob = new User("bob");
+		final Quakk anns = Quakk.QuakkBuilder.aNew("ann's first").from(ann).at(new DateTime("22:30")).build();
+		final Quakk bobs = Quakk.QuakkBuilder.aNew("bob's first").from(bob).at(new DateTime("22:30")).build();
+		repository.save(anns);
+		repository.save(bobs);
+
+		//ann follows bob
+		repository.follow(ann, bob);
+
+
+		assertThat(repository.wall(ann), is(new Timeline(anns, bobs)));
+	}
+
 
 }
