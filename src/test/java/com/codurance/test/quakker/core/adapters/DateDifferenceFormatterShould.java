@@ -19,9 +19,13 @@ public class DateDifferenceFormatterShould {
 
 	@Test
 	public void calculate_a_single_second_difference () {
-		final DateTime start = new DateTime("00:00:00");
-		final DateTime end = new DateTime("00:00:01");
-
-		assertThat(dateDifferenceFormatter.difference(start, end), is("1 second ago"));
+		assertThat(differenceBetween("00:00:00", "00:00:01"), is("1 second ago"));
 	}
+
+	private String differenceBetween (final String startRepresentation, final String endRepresentation) {
+		final DateTime start = new DateTime(startRepresentation);
+		final DateTime end = new DateTime(endRepresentation);
+		return dateDifferenceFormatter.difference(start, end);
+	}
+
 }
