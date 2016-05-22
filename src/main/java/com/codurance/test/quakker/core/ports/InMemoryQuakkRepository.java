@@ -20,7 +20,7 @@ public class InMemoryQuakkRepository implements QuakkRepository {
 
 	@Override
 	public Timeline wall (final User user) {
-		final Predicate<Quakk> sameOwner = x -> x.owner().equals(user);
+		final Predicate<Quakk> sameOwner = quakk -> quakk.owner().equals(user);
 		final List<Quakk> matchingQuakks = filterBy(sameOwner);
 		return toTimeline(matchingQuakks);
 	}
