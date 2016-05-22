@@ -39,5 +39,19 @@ public abstract class QuakkRepositoryShould {
 		assertThat(repository.wall(user), is(new Timeline(first, second)));
 	}
 
+	@Test
+	public void retrieve_only_the_quakks_by_the_selected_user () {
+		repository = implementation();
+		final User ann = new User("ann");
+		final User bob = new User("bob");
+		final Quakk anns = Quakk.QuakkBuilder.aNew("first").from(ann).at(new DateTime("22:30")).build();
+		final Quakk bobs = Quakk.QuakkBuilder.aNew("first").from(bob).at(new DateTime("22:30")).build();
+
+		repository.save(anns);
+		repository.save(bobs);
+
+		assertThat(repository.wall(ann), is(new Timeline(anns)));
+	}
+
 
 }
