@@ -10,35 +10,36 @@ public class DateDifferenceFormatter {
 		final long hours = duration.toHours();
 		final long minutes = duration.toMinutes();
 		final long seconds = duration.toMillis() / 1_000;
-		final Unit hour = new Unit("hour", "hours");
+
+		if (duration.isZero()) {
+			return "just now";
+		}
+
+		Unit unit;
 		if (hours > 0) {
-			return String.format("%s ago", hour.of(hours));
+			unit = new Unit("hour", "hours", hours);
+		} else if (minutes > 0) {
+			unit = new Unit("minute", "minutes", minutes);
+		} else if (seconds > 0) {
+			unit = new Unit("second", "seconds", seconds);
+		} else {
+			throw new RuntimeException("Cannot find this unit");
 		}
-		if (minutes > 0) {
-			if (minutes > 1) {
-				return String.format("%d minutes ago", minutes);
-			}
-			return "1 minute ago";
-		}
-		if (seconds > 0) {
-			if (seconds > 1) {
-				return String.format("%d seconds ago", seconds);
-			}
-			return "1 second ago";
-		}
-		return "just now";
+		return String.format("%s ago", unit.describe());
 	}
 
 	private class Unit {
 		private final String singular;
 		private final String plural;
+		private final long actualAmount;
 
-		public Unit (final String singular, final String plural) {
+		public Unit (final String singular, final String plural, final long actualAmount) {
 			this.singular = singular;
 			this.plural = plural;
+			this.actualAmount = actualAmount;
 		}
 
-		public String of (final long actualAmount) {
+		public String describe () {
 			String unit = singular;
 			if (actualAmount > 1) {
 				unit = plural;
