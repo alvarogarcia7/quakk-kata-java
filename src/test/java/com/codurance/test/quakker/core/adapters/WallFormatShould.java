@@ -26,7 +26,7 @@ public class WallFormatShould {
 	}
 
 	@Test
-	public void format_quakks_some_minutes_ago () {
+	public void format_quakks () {
 
 		format = new WallFormat(clock);
 
