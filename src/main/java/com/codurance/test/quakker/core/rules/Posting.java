@@ -53,10 +53,14 @@ public class Posting implements Rule {
 		}
 
 		public QuakkMessageSplitter invoke () {
-			final String[] parts = representation.split(KEYWORD_CREATION, 2);
+			final String[] parts = splitByFirstToken();
 			user = new User(parts[0]);
 			message = parts[1];
 			return this;
+		}
+
+		private String[] splitByFirstToken () {
+			return representation.split(KEYWORD_CREATION, 2);
 		}
 	}
 }
