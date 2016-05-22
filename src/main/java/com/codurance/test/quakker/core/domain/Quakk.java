@@ -53,7 +53,7 @@ public class Quakk {
 	public static class QuakkBuilder {
 		private String message;
 		private User owner;
-		private DateTime dateTime = DateTime.now();
+		private DateTime dateTime;
 
 		private QuakkBuilder (final String message) {
 			this.message = message;
