@@ -17,9 +17,9 @@ public class ConsoleOutputShould {
 
         final MockSystemOutput mockSystemOutput = injectSystemOutput();
 
-        new ConsoleOutput(System.out).print("hellso");
+        new ConsoleOutput(System.out).print("hello");
 
-        assertThat(mockSystemOutput.toString(), is("hello\\n"));
+        assertThat(mockSystemOutput.toString(), is("hello\n"));
 
     }
 
