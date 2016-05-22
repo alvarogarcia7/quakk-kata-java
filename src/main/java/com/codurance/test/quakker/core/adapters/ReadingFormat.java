@@ -17,7 +17,6 @@ public class ReadingFormat implements Format {
 	public String format (Quakk quakk) {
 		final String timeAgo = formatTime(quakk.since(clock));
 		final String quakkMessage = quakk.message();
-		final String user = quakk.owner().name();
 		return String.format("%s (%s)", quakkMessage, timeAgo);
 	}
 
