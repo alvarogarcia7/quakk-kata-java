@@ -44,6 +44,11 @@ public class DateDifferenceFormatterShould {
 	public void calculate_a_hour_second_difference () {
 		assertThat(differenceBetween("00:00:00", "01:00:00"), is("1 hour ago"));
 	}
+	
+	@Test
+	public void calculate_a_difference_of_several_hours () {
+		assertThat(differenceBetween("00:00:00", "02:00:00"), is("2 hours ago"));
+	}
 
 	private String differenceBetween (final String startRepresentation, final String endRepresentation) {
 		final DateTime start = new DateTime(startRepresentation);
