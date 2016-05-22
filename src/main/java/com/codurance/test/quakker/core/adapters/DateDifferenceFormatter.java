@@ -10,11 +10,9 @@ public class DateDifferenceFormatter {
 		final long hours = duration.toHours();
 		final long minutes = duration.toMinutes();
 		final long seconds = duration.toMillis() / 1_000;
+		final Unit hour = new Unit("hour", "hours");
 		if (hours > 0) {
-			if (hours > 1) {
-				return String.format("%d hours ago", hours);
-			}
-			return "1 hour ago";
+			return String.format("%s ago", hour.of(hours));
 		}
 		if (minutes > 0) {
 			if (minutes > 1) {
@@ -29,5 +27,23 @@ public class DateDifferenceFormatter {
 			return "1 second ago";
 		}
 		return "just now";
+	}
+
+	private class Unit {
+		private final String singular;
+		private final String plural;
+
+		public Unit (final String singular, final String plural) {
+			this.singular = singular;
+			this.plural = plural;
+		}
+
+		public String of (final long actualAmount) {
+			String unit = singular;
+			if (actualAmount > 1) {
+				unit = plural;
+			}
+			return String.format("%d %s", actualAmount, unit);
+		}
 	}
 }
