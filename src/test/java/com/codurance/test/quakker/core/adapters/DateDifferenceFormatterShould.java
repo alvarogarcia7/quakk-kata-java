@@ -22,6 +22,12 @@ public class DateDifferenceFormatterShould {
 		assertThat(differenceBetween("00:00:00", "00:00:01"), is("1 second ago"));
 	}
 
+
+	@Test
+	public void calculate_a_difference_of_several_seconds () {
+		assertThat(differenceBetween("00:00:00", "00:00:02"), is("2 seconds ago"));
+	}
+
 	private String differenceBetween (final String startRepresentation, final String endRepresentation) {
 		final DateTime start = new DateTime(startRepresentation);
 		final DateTime end = new DateTime(endRepresentation);
