@@ -9,7 +9,7 @@ public class Timeline {
 	private final Quakk[] quakks;
 
 	public Timeline (final Quakk... quakks) {
-		this.quakks = quakks;
+		this.quakks = sort(Arrays.asList(quakks));
 	}
 
 	public Timeline merge (final Timeline another) {
