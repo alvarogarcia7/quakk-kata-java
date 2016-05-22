@@ -22,14 +22,6 @@ public class WallFormat implements Format {
 	}
 
 	private String formatTime (final Duration duration) {
-		final long seconds = duration.toMillis() / 1000;
-		final long minutes = seconds / 60;
-		if (minutes > 0) {
-			return String.format("%d minutes ago", minutes);
-		} else {
-			return String.format("%d seconds ago", seconds);
-		}
-
-
+		return new DateDifferenceFormatter().difference(duration);
 	}
 }

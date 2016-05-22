@@ -135,7 +135,7 @@ public class CliQuakkerShould {
 			oneOf(repository).wall(bob); will(returnValue(bobTimeline));
 			oneOf(repository).wall(charlie); will(returnValue(charlieTimeline));
 
-			oneOf(output).print("Bob - Hello World (100 minutes ago)");
+			oneOf(output).print("Bob - Hello World (1 hour ago)");
 			oneOf(output).print("Charlie - First Quakk! (40 minutes ago)");
 		}});
 
