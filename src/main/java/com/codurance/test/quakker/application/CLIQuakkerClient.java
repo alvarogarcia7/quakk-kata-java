@@ -19,10 +19,6 @@ public class CLIQuakkerClient {
         this.client = new QuakkerClient(repository, output, clock);
     }
 
-    private void execute (final String commandRepresentation) {
-        this.client.execute(commandRepresentation);
-    }
-
     public void run () {
         while (true) {
             final String command = input.read();
@@ -43,5 +39,9 @@ public class CLIQuakkerClient {
 
     private boolean shouldStop (final String command) {
         return command.equals("Stop!");
+    }
+
+    private void execute (final String commandRepresentation) {
+        this.client.execute(commandRepresentation);
     }
 }
