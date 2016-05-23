@@ -55,7 +55,7 @@ instead of "John", the system assumes you wanted to indicate "Johhn" (otherwise,
 A longer sample:
 
 ```
-mypc $ java -jar target/quakker-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+mypc $ java -jar target/quakker-client.jar
 John
 John -> hello
 John
