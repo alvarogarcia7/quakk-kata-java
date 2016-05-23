@@ -4,6 +4,8 @@ This is a Quakker (tm) Client, new trendiest non-concurrent CLI-based social net
 
 ### Installing
 
+#### Compiling from the sources
+
 ### Usage
 
 ### Sample
