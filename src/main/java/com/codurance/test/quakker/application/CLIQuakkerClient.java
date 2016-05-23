@@ -33,15 +33,15 @@ public class CLIQuakkerClient {
         }
     }
 
-    private boolean shouldStop (final String command) {
-        return command.equals("Stop!");
-    }
-
     public static void main (String[] args) {
         new CLIQuakkerClient(
                 new InMemoryQuakkRepository(),
                 new ConsoleOutput(System.out),
                 new SystemClock(),
                 new ConsoleInput(System.in)).run();
+    }
+
+    private boolean shouldStop (final String command) {
+        return command.equals("Stop!");
     }
 }
