@@ -8,6 +8,13 @@ Download the latest release from [here](https://github.com/alvarogarcia7/quakk-k
 
 #### Compiling from the sources
 
+ * Download the source code
+ * Compile with
+
+```mvn clean package```
+
+ * Find the jar in the ``target`` folder
+
 ### Usage
 
 ### Sample
