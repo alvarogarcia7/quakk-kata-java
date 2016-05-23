@@ -26,11 +26,15 @@ public class CLIQuakkerClient {
     public void run () {
         while (true) {
             final String command = input.read();
-            if (command.equals("Stop!")) {
+            if (shouldStop(command)) {
                 break;
             }
             execute(command);
         }
+    }
+
+    private boolean shouldStop (final String command) {
+        return command.equals("Stop!");
     }
 
     public static void main (String[] args) {
