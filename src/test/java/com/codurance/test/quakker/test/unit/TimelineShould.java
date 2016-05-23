@@ -28,7 +28,7 @@ public class TimelineShould {
 	}
 
 	@Test
-	public void two_timelines_are_not_equal_based_on_the_quakks () {
+	public void two_timelines_are_not_equal_based_on_the_internal_state () {
 		final Quakk a = aQuakk("message1", "22:00");
 		final Quakk b = aQuakk("message2", "22:00");
 		assertThat(new Timeline(a), is(not(new Timeline(a,b))));
