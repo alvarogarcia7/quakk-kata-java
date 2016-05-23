@@ -26,6 +26,20 @@ public class DateTime {
 		return representation;
 	}
 
+	public int compare (final DateTime other) {
+		return this.value.compareTo(other.value);
+	}
+
+	public LocalTime value () {
+		return value;
+	}
+
+	public Duration minus (final DateTime start) {
+		final DateTime end = this;
+
+		return Duration.between(start.value, end.value);
+	}
+
 	public String toString () {
 		final StringBuffer sb = new StringBuffer("DateTime{");
 		sb.append("value=").append(value);
@@ -47,19 +61,5 @@ public class DateTime {
 	@Override
 	public int hashCode () {
 		return value != null ? value.hashCode() : 0;
-	}
-
-	public int compare (final DateTime other) {
-		return this.value.compareTo(other.value);
-	}
-
-	public LocalTime value () {
-		return value;
-	}
-
-	public Duration minus (final DateTime start) {
-		final DateTime end = this;
-
-		return Duration.between(start.value, end.value);
 	}
 }
