@@ -62,16 +62,6 @@ public class Quakk {
 	}
 
 	@Override
-	public String toString () {
-		final StringBuffer sb = new StringBuffer("Quakk{");
-		sb.append("message='").append(message).append('\'');
-		sb.append(", owner=").append(owner);
-		sb.append(", dateTime=").append(dateTime);
-		sb.append('}');
-		return sb.toString();
-	}
-
-	@Override
 	public boolean equals (final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
