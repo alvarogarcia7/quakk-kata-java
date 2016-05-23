@@ -14,4 +14,9 @@ public class DateTimeShould {
         assertThat(new DateTime("21:30:00").value(), is(LocalTime.of(21, 30, 00)));
     }
 
+    @Test
+    public void parse_dates_without_seconds () {
+        assertThat(new DateTime("21:31").value(), is(LocalTime.of(21, 31)));
+    }
+
 }
