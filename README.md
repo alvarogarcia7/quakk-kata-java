@@ -2,6 +2,8 @@
 
 This is a Quakker (tm) Client, the newest, trendiest, non-concurrent CLI-based social network to date.
 
+It has specially been designed for power users working on Windows, Linux and Mac OS X environments.
+
 ### Name
 
 The 'quakk' is the onomatopoeia of the duck ([duck calling](https://en.wikipedia.org/wiki/Cross-linguistic_onomatopoeias#Duck_calling)), in the same way as the 'tweet tweet' is the
