@@ -1,6 +1,7 @@
-package com.codurance.test.quakker.core.ports;
+package com.codurance.test.quakker.test.unit;
 
 import com.codurance.test.quakker.core.adapters.InMemoryQuakkRepository;
+import com.codurance.test.quakker.core.ports.QuakkRepository;
 
 public class InMemoryQuakkRepositoryShould extends QuakkRepositoryShould {
 	@Override

@@ -1,8 +1,9 @@
-package com.codurance.test.quakker.core.rules;
+package com.codurance.test.quakker.test.unit;
 
 import com.codurance.test.quakker.core.KnownLimitations;
 import com.codurance.test.quakker.core.domain.User;
 import com.codurance.test.quakker.core.ports.QuakkRepository;
+import com.codurance.test.quakker.core.rules.Following;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;

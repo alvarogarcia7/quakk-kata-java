@@ -1,5 +1,6 @@
-package com.codurance.test.quakker.core.adapters;
+package com.codurance.test.quakker.test.unit;
 
+import com.codurance.test.quakker.core.adapters.ReadingFormat;
 import com.codurance.test.quakker.core.domain.DateTime;
 import com.codurance.test.quakker.core.domain.Quakk;
 import com.codurance.test.quakker.core.domain.User;
@@ -13,7 +14,7 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class WallFormatShould {
+public class ReadingFormatShould {
 
 	private Mockery context;
 	private Clock clock;
@@ -28,7 +29,7 @@ public class WallFormatShould {
 	@Test
 	public void format_quakks () {
 
-		format = new WallFormat(clock);
+		format = new ReadingFormat(clock);
 
 		context.checking(new Expectations() {{
 			oneOf(clock).now(); will(returnValue(new DateTime("21:10")));
@@ -40,8 +41,9 @@ public class WallFormatShould {
 				.at(new DateTime("21:00"))
 				.build());
 
-		assertThat(formatted, is("user - message (10 minutes ago)"));
+		assertThat(formatted, is("message (10 minutes ago)"));
 
 		context.assertIsSatisfied();
 	}
+
 }

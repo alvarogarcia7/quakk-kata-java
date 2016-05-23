@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.core.ports;
+package com.codurance.test.quakker.test.unit;
 
 import com.codurance.test.quakker.core.adapters.SystemClock;
 import com.codurance.test.quakker.core.domain.DateTime;

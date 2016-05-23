@@ -1,9 +1,10 @@
-package com.codurance.test.quakker.core.ports;
+package com.codurance.test.quakker.test.unit;
 
 import com.codurance.test.quakker.core.domain.DateTime;
 import com.codurance.test.quakker.core.domain.Quakk;
 import com.codurance.test.quakker.core.domain.Timeline;
 import com.codurance.test.quakker.core.domain.User;
+import com.codurance.test.quakker.core.ports.QuakkRepository;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

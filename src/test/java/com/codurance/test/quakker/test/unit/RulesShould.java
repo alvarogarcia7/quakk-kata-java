@@ -1,5 +1,7 @@
-package com.codurance.test.quakker.core.rules;
+package com.codurance.test.quakker.test.unit;
 
+import com.codurance.test.quakker.core.rules.Rule;
+import com.codurance.test.quakker.core.rules.Rules;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
