@@ -66,6 +66,8 @@
                         </manifest>
                     </archive>
 
+                    <finalName>quakker-client</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <executions>
                     <execution>
