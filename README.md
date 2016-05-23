@@ -4,6 +4,8 @@ This is a Quakker (tm) Client, new trendiest non-concurrent CLI-based social net
 
 ### Installing
 
+Download the latest release from [here](https://github.com/alvarogarcia7/quakk-kata-java/releases)
+
 #### Compiling from the sources
 
 ### Usage
