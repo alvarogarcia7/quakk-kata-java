@@ -19,7 +19,7 @@ all commands are case sensitive:
   * posting: ``<user name> -> <message>``
   * reading: ``<user name>``
   * following: ``<user name> follows <another user>``
-  * wall: ``<user name> wall`
+  * wall: ``<user name> wall``
   * stopping the client: ``Stop!``
 
 ### Sample
