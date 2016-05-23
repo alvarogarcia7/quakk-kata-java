@@ -18,7 +18,7 @@ public class QuakkerClient {
 				new Posting(repository, clock),
 				new Following(repository),
 				new Wall(repository, output, clock),
-				new Reading(output, repository, clock)
+				new Reading(repository, output, clock)
 		);
 	}
 

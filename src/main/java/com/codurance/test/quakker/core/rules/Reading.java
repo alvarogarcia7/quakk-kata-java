@@ -12,7 +12,7 @@ public class Reading implements Rule {
 	private final QuakkRepository repository;
 	private Clock clock;
 
-	public Reading (final Output output, final QuakkRepository repository, final Clock clock) {
+	public Reading (final QuakkRepository repository, final Output output, final Clock clock) {
 		this.output = output;
 		this.repository = repository;
 		this.clock = clock;
