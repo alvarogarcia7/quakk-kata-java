@@ -31,6 +31,14 @@ Description of the commands (all are case sensitive):
   * wall: ``<user name> wall``
   * stopping the client: ``Stop!``
 
+To start the client:
+
+  * Open your favorite CLI
+  * find the jar file
+  * ``java -jar $jar_filename.jar`` #replace ``$jar_filename`` for the right name
+  * Quakk quakk
+  * ``Stop!`` or Control+C to exit
+
 Note: this client is designed for power users: all commands are assumed to be correct. If you slip and type "Johhn"
 instead of "John", the system assumes you wanted to indicate "Johhn" (otherwise, should have typed "John")
 
