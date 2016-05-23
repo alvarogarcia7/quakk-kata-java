@@ -17,7 +17,23 @@ Download the latest release from [here](https://github.com/alvarogarcia7/quakk-k
 
 ### Usage
 
+all commands are case sensitive:
+
+  * posting: ``<user name> -> <message>``
+  * reading: ``<user name>``
+  * following: ``<user name> follows <another user>``
+  * wall: ``<user name> wall`
+  * stopping the client: ``Stop!``
+
 ### Sample
+
+  * posting: ``John -> hello``
+  * reading: ``John``
+  * following: ``Maria follows John``
+  * wall: ``John wall`
+  * stopping the client: ``Stop!``
+
+A longer sample:
 
 ```
 mypc $ java -jar target/quakker-0.0.1-SNAPSHOT-jar-with-dependencies.jar
