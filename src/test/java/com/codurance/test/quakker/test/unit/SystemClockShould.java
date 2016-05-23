@@ -1,6 +1,6 @@
 package com.codurance.test.quakker.test.unit;
 
-import com.codurance.test.quakker.core.adapters.SystemClock;
+import com.codurance.test.quakker.infrastructure.SystemClock;
 import com.codurance.test.quakker.core.domain.DateTime;
 import org.junit.Test;
 

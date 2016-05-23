@@ -1,6 +1,6 @@
 package com.codurance.test.quakker.test.unit;
 
-import com.codurance.test.quakker.core.adapters.ConsoleInput;
+import com.codurance.test.quakker.infrastructure.console.ConsoleInput;
 import org.junit.Test;
 
 import java.io.IOException;

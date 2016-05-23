@@ -4,7 +4,7 @@ import com.codurance.test.quakker.core.domain.User;
 import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.ports.Output;
 import com.codurance.test.quakker.core.ports.QuakkRepository;
-import com.codurance.test.quakker.core.adapters.ReadingFormat;
+import com.codurance.test.quakker.infrastructure.format.ReadingFormat;
 
 public class Reading implements Rule {
 

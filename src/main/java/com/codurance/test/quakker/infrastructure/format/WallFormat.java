@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.core.adapters;
+package com.codurance.test.quakker.infrastructure.format;
 
 import com.codurance.test.quakker.core.domain.Quakk;
 import com.codurance.test.quakker.core.ports.Clock;

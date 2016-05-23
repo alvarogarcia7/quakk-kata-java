@@ -1,10 +1,10 @@
 package com.codurance.test.quakker.application;
 
-import com.codurance.test.quakker.core.adapters.ConsoleInput;
+import com.codurance.test.quakker.infrastructure.console.ConsoleInput;
 import com.codurance.test.quakker.core.ports.Input;
-import com.codurance.test.quakker.core.adapters.ConsoleOutput;
-import com.codurance.test.quakker.core.adapters.InMemoryQuakkRepository;
-import com.codurance.test.quakker.core.adapters.SystemClock;
+import com.codurance.test.quakker.infrastructure.console.ConsoleOutput;
+import com.codurance.test.quakker.infrastructure.InMemoryQuakkRepository;
+import com.codurance.test.quakker.infrastructure.SystemClock;
 import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.ports.Output;
 import com.codurance.test.quakker.core.ports.QuakkRepository;

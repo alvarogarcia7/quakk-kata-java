@@ -2,7 +2,7 @@ package com.codurance.test.quakker.test.acceptance;
 
 import com.codurance.test.quakker.application.CLIQuakkerClient;
 import com.codurance.test.quakker.core.ports.Input;
-import com.codurance.test.quakker.core.adapters.InMemoryQuakkRepository;
+import com.codurance.test.quakker.infrastructure.InMemoryQuakkRepository;
 import com.codurance.test.quakker.core.domain.DateTime;
 import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.ports.Output;

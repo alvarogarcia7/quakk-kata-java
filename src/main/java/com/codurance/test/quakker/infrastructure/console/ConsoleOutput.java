@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.core.adapters;
+package com.codurance.test.quakker.infrastructure.console;
 
 import com.codurance.test.quakker.core.ports.Output;
 

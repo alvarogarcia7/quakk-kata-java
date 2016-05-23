@@ -1,6 +1,6 @@
 package com.codurance.test.quakker.core.rules;
 
-import com.codurance.test.quakker.core.adapters.WallFormat;
+import com.codurance.test.quakker.infrastructure.format.WallFormat;
 import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.ports.Output;
 import com.codurance.test.quakker.core.ports.QuakkRepository;

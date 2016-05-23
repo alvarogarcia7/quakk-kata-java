@@ -1,6 +1,6 @@
 package com.codurance.test.quakker.test.unit;
 
-import com.codurance.test.quakker.core.adapters.DateDifferenceFormatter;
+import com.codurance.test.quakker.infrastructure.format.DateDifferenceFormatter;
 import com.codurance.test.quakker.core.domain.DateTime;
 import org.junit.Before;
 import org.junit.Test;

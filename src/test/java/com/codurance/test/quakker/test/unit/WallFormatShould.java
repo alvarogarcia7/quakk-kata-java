@@ -1,6 +1,6 @@
 package com.codurance.test.quakker.test.unit;
 
-import com.codurance.test.quakker.core.adapters.WallFormat;
+import com.codurance.test.quakker.infrastructure.format.WallFormat;
 import com.codurance.test.quakker.core.domain.DateTime;
 import com.codurance.test.quakker.core.domain.Quakk;
 import com.codurance.test.quakker.core.domain.User;
