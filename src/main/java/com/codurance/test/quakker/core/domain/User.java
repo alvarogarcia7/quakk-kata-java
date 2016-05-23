@@ -8,14 +8,6 @@ public class User {
 	}
 
 	@Override
-	public String toString () {
-		final StringBuffer sb = new StringBuffer("User{");
-		sb.append("name='").append(name).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
-
-	@Override
 	public boolean equals (final Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
