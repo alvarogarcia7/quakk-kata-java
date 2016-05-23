@@ -1,6 +1,6 @@
 ## Quakker Client
 
-This is a Quakker (tm) Client, the new, trendiest, non-concurrent CLI-based social network to date.
+This is a Quakker (tm) Client, the newest, trendiest, non-concurrent CLI-based social network to date.
 
 ### Name
 
