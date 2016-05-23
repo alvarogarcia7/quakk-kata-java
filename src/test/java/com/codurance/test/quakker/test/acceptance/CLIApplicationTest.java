@@ -12,7 +12,7 @@ import org.jmock.Mockery;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ApplicationTest {
+public class CLIApplicationTest {
 
     private Input input;
     private Mockery context;
