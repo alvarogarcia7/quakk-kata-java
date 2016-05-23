@@ -35,6 +35,12 @@ public class Timeline {
 		return allQuacks;
 	}
 
+	public void printAt (final Output output, final Format format) {
+		for (Quakk quakk : quakks) {
+			output.print(format.format(quakk));
+		}
+	}
+
 	@Override
 	public boolean equals (final Object o) {
 		if (this == o) return true;
@@ -64,11 +70,5 @@ public class Timeline {
 		sb.append("quakks=").append(quakks == null ? "null" : Arrays.asList(quakks).toString());
 		sb.append('}');
 		return sb.toString();
-	}
-
-	public void printAt (final Output output, final Format format) {
-		for (Quakk quakk : quakks) {
-			output.print(format.format(quakk));
-		}
 	}
 }
