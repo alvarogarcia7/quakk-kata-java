@@ -1,6 +1,7 @@
-package com.codurance.test.quakker;
+package com.codurance.test.quakker.application;
 
-import com.codurance.test.quakker.application.QuakkerClient;
+import com.codurance.test.quakker.core.adapters.ConsoleInput;
+import com.codurance.test.quakker.core.ports.Input;
 import com.codurance.test.quakker.core.adapters.ConsoleOutput;
 import com.codurance.test.quakker.core.adapters.InMemoryQuakkRepository;
 import com.codurance.test.quakker.core.adapters.SystemClock;

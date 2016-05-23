@@ -62,7 +62,7 @@
                     <!-- MainClass in mainfest make a executable jar -->
                     <archive>
                         <manifest>
-                            <mainClass>com.codurance.test.quakker.CLIQuakkerClient</mainClass>
+                            <mainClass>com.codurance.test.quakker.application.CLIQuakkerClient</mainClass>
                         </manifest>
                     </archive>
 
