@@ -59,7 +59,7 @@ public class DateDifferenceFormatterShould {
 
 	@Test
 	public void calculate_a_difference_in_an_unknown_format () {
-		assertThat(differenceBetween("23:00:00", "02:00:00"), is("more than 1 hour ago"));
+		assertThat(differenceBetween("23:00:00", "02:00:00"), is("3 hours ago"));
 	}
 
 	private String differenceBetween (final String startRepresentation, final String endRepresentation) {

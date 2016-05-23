@@ -4,7 +4,7 @@ import java.time.Duration;
 
 public class DateDifferenceFormatter {
 	public String difference (final Duration duration) {
-		final long hours = duration.toHours();
+		final long hours = (duration.toHours() + 24) % 24;
 		final long minutes = duration.toMinutes();
 		final long seconds = duration.toMillis() / 1_000;
 
@@ -20,7 +20,7 @@ public class DateDifferenceFormatter {
 		} else if (seconds > 0) {
 			unit = new Unit("second", "seconds", seconds);
 		} else {
-			throw new RuntimeException("Cannot find this unit");
+			unit = new Unit("hour", "hours", hours);
 		}
 		return String.format("%s ago", unit.describe());
 	}
