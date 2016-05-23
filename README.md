@@ -8,7 +8,7 @@ Download the latest release from [here](https://github.com/alvarogarcia7/quakk-k
 
 #### Compiling from the sources
 
- * Download the source code
+ * Download the source code [here](https://github.com/alvarogarcia7/quakk-kata-java)
  * Compile with
 
 ```mvn clean package```
