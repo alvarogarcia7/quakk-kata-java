@@ -23,7 +23,7 @@ public class Timeline {
 
 	private Quakk[] sort (final List<Quakk> allQuacks) {
 		return allQuacks.stream()
-				.sorted((o1, o2) -> o1.dateTime().compare(o2.dateTime()))
+				.sorted((o1, o2) -> o2.dateTime().compare(o1.dateTime()))
 				.collect(Collectors.toList())
 				.toArray(new Quakk[0]);
 	}

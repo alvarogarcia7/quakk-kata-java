@@ -19,12 +19,12 @@ public class TimelineShould {
 
 	@Test
 	public void merging_two_timelines_sorts_by_date () {
-		assertThat(new Timeline(quakk1, quakk3).merge(new Timeline(quakk2)), is(new Timeline(quakk1, quakk2, quakk3)));
+		assertThat(new Timeline(quakk1, quakk3).merge(new Timeline(quakk2)), is(new Timeline(quakk3, quakk2, quakk1)));
 	}
 
 	@Test
 	public void the_timeline_is_sorted_by_date () {
-		assertThat(new Timeline(quakk2, quakk1, quakk3), is(new Timeline(quakk1, quakk2, quakk3)));
+		assertThat(new Timeline(quakk2, quakk1, quakk3), is(new Timeline(quakk3, quakk2, quakk1)));
 	}
 
 	@Test
