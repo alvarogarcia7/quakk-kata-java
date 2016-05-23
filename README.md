@@ -2,6 +2,11 @@
 
 This is a Quakker (tm) Client, the new, trendiest, non-concurrent CLI-based social network to date.
 
+### Name
+
+The 'quakk' is the onomatopoeia of the duck ([duck calling](https://en.wikipedia.org/wiki/Cross-linguistic_onomatopoeias#Duck_calling)), in the same way as the 'tweet tweet' is the
+onomatopoeia of the bird ([bird singing](https://en.wikipedia.org/wiki/Cross-linguistic_onomatopoeias#Bird_singing)).
+
 ### Installing
 
 Download the latest release from [here](https://github.com/alvarogarcia7/quakk-kata-java/releases)
