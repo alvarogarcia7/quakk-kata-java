@@ -27,7 +27,7 @@ Description of the commands (all are case sensitive):
   * stopping the client: ``Stop!``
 
 Note: this client is designed for power users: all commands are assumed to be correct. If you slip and type "Johhn"
-instead of "John", the system assumes you wanted to indicate "Johnn" (otherwise, should have typed "John")
+instead of "John", the system assumes you wanted to indicate "Johhn" (otherwise, should have typed "John")
 
 ### Sample
 
