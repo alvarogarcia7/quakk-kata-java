@@ -1,6 +1,9 @@
 package com.codurance.test.quakker;
 
 import com.codurance.test.quakker.application.QuakkerClient;
+import com.codurance.test.quakker.core.adapters.ConsoleOutput;
+import com.codurance.test.quakker.core.adapters.InMemoryQuakkRepository;
+import com.codurance.test.quakker.core.adapters.SystemClock;
 import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.ports.Output;
 import com.codurance.test.quakker.core.ports.QuakkRepository;
@@ -27,5 +30,13 @@ public class CLIQuakkerClient {
             }
             execute(command);
         }
+    }
+
+    public static void main (String[] args) {
+        new CLIQuakkerClient(
+                new InMemoryQuakkRepository(),
+                new ConsoleOutput(System.out),
+                new SystemClock(),
+                new ConsoleInput(System.in)).run();
     }
 }
