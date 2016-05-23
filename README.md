@@ -18,7 +18,7 @@ The client interacts with the system via CLI (this is a CLI client, after all).
 
 The client reads the input you write, showing the results of that command (if any).
 
-all commands are case sensitive:
+Description of the commands (all are case sensitive):
 
   * posting: ``<user name> -> <message>``
   * reading: ``<user name>``
