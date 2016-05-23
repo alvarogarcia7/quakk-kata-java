@@ -34,7 +34,7 @@ instead of "John", the system assumes you wanted to indicate "Johhn" (otherwise,
   * posting: ``John -> hello``
   * reading: ``John``
   * following: ``Maria follows John``
-  * wall: ``John wall`
+  * wall: ``John wall``
   * stopping the client: ``Stop!``
 
 A longer sample:
