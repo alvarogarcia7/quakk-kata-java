@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.test.unit;
+package com.codurance.test.quakker.test.unit.core.adapters;
 
 import com.codurance.test.quakker.infrastructure.console.ConsoleInput;
 import org.junit.Test;
