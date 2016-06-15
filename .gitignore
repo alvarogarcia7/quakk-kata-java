@@ -1,3 +1,5 @@
 .idea
 *.iml
 target
+feedback.txt
+feedback_pending.txt
