@@ -9,10 +9,7 @@ public class Rules {
 
     public void applyTo (final String representation) {
         for (Rule rule : rules) {
-            if (rule.appliesTo(representation)) {
-                rule.apply(representation);
-                break;
-            }
+            rule.apply(representation);
         }
     }
 }

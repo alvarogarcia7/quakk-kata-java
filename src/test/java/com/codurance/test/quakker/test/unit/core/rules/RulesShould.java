@@ -33,8 +33,8 @@ public class RulesShould {
         final Rule ruleThatApplies = context.mock(Rule.class, "ruleThatApplies");
         final Rule ruleThatDoesNotApply = context.mock(Rule.class, "ruleThatDoesNotApply");
         context.checking(new Expectations() {{
-            oneOf(ruleThatApplies).appliesTo(representation); will(returnValue(true));
             oneOf(ruleThatApplies).apply(representation);
+            oneOf(ruleThatDoesNotApply).apply(representation);
         }});
 
         new Rules(ruleThatApplies, ruleThatDoesNotApply).applyTo(representation);

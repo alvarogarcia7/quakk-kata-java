@@ -4,6 +4,7 @@ import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.ports.InputOutput;
 import com.codurance.test.quakker.core.ports.QuakkRepository;
 import com.codurance.test.quakker.core.rules.Following;
+import com.codurance.test.quakker.core.rules.GatedRule;
 import com.codurance.test.quakker.core.rules.Posting;
 import com.codurance.test.quakker.core.rules.Reading;
 import com.codurance.test.quakker.core.rules.Rules;
@@ -15,10 +16,11 @@ public class QuakkerClient {
 
     public QuakkerClient (final QuakkRepository repository, final InputOutput output, final Clock clock) {
         this.rules = new Rules(
-                new Posting(repository, clock),
-                new Following(repository),
-                new Wall(repository, output, clock),
-                new Reading(repository, output, clock)
+                new GatedRule(new Posting(repository, clock)),
+                new GatedRule(new Following(repository)),
+                new GatedRule(new Wall(repository, output, clock)),
+                new GatedRule(new Reading(repository, output, clock))
+
         );
     }
 

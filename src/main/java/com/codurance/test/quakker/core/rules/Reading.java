@@ -1,5 +1,6 @@
 package com.codurance.test.quakker.core.rules;
 
+import com.codurance.test.quakker.core.KnownLimitations;
 import com.codurance.test.quakker.core.domain.User;
 import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.ports.InputOutput;
@@ -25,7 +26,9 @@ public class Reading implements Rule {
 
     @Override
     public boolean appliesTo (final String representation) {
-        return true;
+        KnownLimitations.userNamesCannotContainSpaces(representation);
+        final boolean isUsername = !representation.contains(" ");
+        return isUsername;
     }
 
 }
