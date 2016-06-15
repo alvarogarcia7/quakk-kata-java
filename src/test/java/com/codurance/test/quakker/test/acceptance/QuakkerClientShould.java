@@ -1,13 +1,13 @@
 package com.codurance.test.quakker.test.acceptance;
 
 import com.codurance.test.quakker.application.QuakkerClient;
-import com.codurance.test.quakker.core.ports.Clock;
 import com.codurance.test.quakker.core.domain.DateTime;
-import com.codurance.test.quakker.core.ports.Output;
 import com.codurance.test.quakker.core.domain.Quakk;
-import com.codurance.test.quakker.core.ports.QuakkRepository;
 import com.codurance.test.quakker.core.domain.Timeline;
 import com.codurance.test.quakker.core.domain.User;
+import com.codurance.test.quakker.core.ports.Clock;
+import com.codurance.test.quakker.core.ports.InputOutput;
+import com.codurance.test.quakker.core.ports.QuakkRepository;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
@@ -20,14 +20,14 @@ public class QuakkerClientShould {
     private Mockery context;
     private QuakkerClient cli;
     private QuakkRepository repository;
-    private Output output;
+    private InputOutput output;
     private Clock clock;
 
     @Before
     public void setUp () {
         context = new Mockery();
         repository = context.mock(QuakkRepository.class);
-        output = context.mock(Output.class);
+        output = context.mock(InputOutput.class);
         clock = context.mock(Clock.class);
         cli = new QuakkerClient(repository, output, clock);
     }

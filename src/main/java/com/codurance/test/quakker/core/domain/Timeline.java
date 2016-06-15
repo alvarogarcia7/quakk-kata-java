@@ -1,7 +1,7 @@
 package com.codurance.test.quakker.core.domain;
 
 import com.codurance.test.quakker.core.ports.Format;
-import com.codurance.test.quakker.core.ports.Output;
+import com.codurance.test.quakker.core.ports.InputOutput;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +35,7 @@ public class Timeline {
         return allQuacks;
     }
 
-    public void printAt (final Output output, final Format format) {
+    public void printAt (final InputOutput output, final Format format) {
         for (Quakk quakk : quakks) {
             output.print(format.format(quakk));
         }

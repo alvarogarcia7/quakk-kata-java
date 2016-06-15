@@ -1,21 +1,21 @@
 package com.codurance.test.quakker.core.rules;
 
-import com.codurance.test.quakker.infrastructure.format.WallFormat;
-import com.codurance.test.quakker.core.ports.Clock;
-import com.codurance.test.quakker.core.ports.Output;
-import com.codurance.test.quakker.core.ports.QuakkRepository;
 import com.codurance.test.quakker.core.domain.Timeline;
 import com.codurance.test.quakker.core.domain.User;
+import com.codurance.test.quakker.core.ports.Clock;
+import com.codurance.test.quakker.core.ports.InputOutput;
+import com.codurance.test.quakker.core.ports.QuakkRepository;
+import com.codurance.test.quakker.infrastructure.format.WallFormat;
 
 import java.util.List;
 
 public class Wall implements Rule {
     public static final String TOKEN = " wall";
     private final QuakkRepository repository;
-    private final Output output;
+    private final InputOutput output;
     private Clock clock;
 
-    public Wall (final QuakkRepository repository, final Output output, final Clock clock) {
+    public Wall (final QuakkRepository repository, final InputOutput output, final Clock clock) {
         this.repository = repository;
         this.output = output;
         this.clock = clock;

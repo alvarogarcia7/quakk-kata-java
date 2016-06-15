@@ -25,7 +25,7 @@ Download the latest release from [here](https://github.com/alvarogarcia7/quakk-k
 
 The client interacts with the system via CLI (this is a CLI client, after all).
 
-The client reads the input you write, showing the results of that command (if any).
+The client reads the inputOutput you write, showing the results of that command (if any).
 
 Description of the commands (all are case sensitive):
 

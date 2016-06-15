@@ -1,6 +1,6 @@
 package com.codurance.test.quakker.test.unit.core.adapters;
 
-import com.codurance.test.quakker.infrastructure.console.ConsoleInput;
+import com.codurance.test.quakker.infrastructure.console.ConsoleInputOutput;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -16,7 +16,7 @@ public class ConsoleInputShould {
     public void read_input () {
         injectSystemInputReading("text");
 
-        assertThat(new ConsoleInput(System.in).read(), is("text"));
+        assertThat(new ConsoleInputOutput(System.in, System.out).read(), is("text"));
     }
 
     private MockSystemInput injectSystemInputReading (String message) {

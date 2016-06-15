@@ -1,6 +1,6 @@
 package com.codurance.test.quakker.test.unit.core.adapters;
 
-import com.codurance.test.quakker.infrastructure.console.ConsoleOutput;
+import com.codurance.test.quakker.infrastructure.console.ConsoleInputOutput;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class ConsoleOutputShould {
 
         final MockSystemOutput mockSystemOutput = injectSystemOutput();
 
-        new ConsoleOutput(System.out).print("hello");
+        new ConsoleInputOutput(System.in, System.out).print("hello");
 
         assertThat(mockSystemOutput.toString(), is("hello\n"));
 
