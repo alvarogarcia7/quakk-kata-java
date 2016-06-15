@@ -31,6 +31,10 @@ public class Quakk {
 		return clock.now().minus(dateTime);
 	}
 
+	public static QuakkBuilder aNew(){
+		return QuakkBuilder.aNew();
+	}
+
 	public static class QuakkBuilder {
 
 		private String message;
@@ -38,13 +42,15 @@ public class Quakk {
 		private User owner;
 
 		private DateTime dateTime;
-		private QuakkBuilder (final String message) {
+		public static QuakkBuilder aNew () {
+			return new QuakkBuilder();
+		}
+
+		public QuakkBuilder withMessage (final String message) {
 			this.message = message;
+			return this;
 		}
-		public static QuakkBuilder aNew (final String message) {
-			final QuakkBuilder builder = new QuakkBuilder(message);
-			return builder;
-		}
+
 		public QuakkBuilder from (final User owner) {
 			this.owner = owner;
 			return this;
@@ -58,7 +64,6 @@ public class Quakk {
 		public Quakk build () {
 			return new Quakk(message, owner, dateTime);
 		}
-
 	}
 
 	@Override

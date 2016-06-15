@@ -33,7 +33,7 @@ public class PostingShould {
 		final DateTime time = new DateTime("22:30");
 
 		context.checking(new Expectations() {{
-			oneOf(repository).save(Quakk.QuakkBuilder.aNew("See link -> google.com").from(new User("user")).at(time)
+			oneOf(repository).save(Quakk.aNew().withMessage("See link -> google.com").from(new User("user")).at(time)
 					.build());
 			oneOf(clock).now();
 			will(returnValue(time));

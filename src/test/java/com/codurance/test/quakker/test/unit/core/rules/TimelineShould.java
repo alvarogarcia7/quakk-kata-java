@@ -36,8 +36,7 @@ public class TimelineShould {
 
 
 	private Quakk aQuakk (final String message, final String time) {
-		return Quakk.QuakkBuilder
-				.aNew(message)
+		return Quakk.aNew().withMessage(message)
 				.from(ANY_USER)
 				.at(new DateTime(time))
 				.build();

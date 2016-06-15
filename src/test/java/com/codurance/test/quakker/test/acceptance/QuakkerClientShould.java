@@ -37,8 +37,7 @@ public class QuakkerClientShould {
 
 		context.checking(new Expectations() {{
 			oneOf(clock).now(); will(returnValue(new DateTime("22:30")));
-			oneOf(repository).save(Quakk.QuakkBuilder
-					.aNew("I love the weather today")
+			oneOf(repository).save(Quakk.aNew().withMessage("I love the weather today")
 					.from(new User("Alice"))
 					.at(new DateTime("22:30"))
 					.build());
@@ -55,8 +54,8 @@ public class QuakkerClientShould {
 		final User user = new User("Bob");
 		final DateTime time = new DateTime("23:00");
 		final Timeline userTimeline = new Timeline(
-				Quakk.QuakkBuilder.aNew("Good game though.").from(user).at(time).build(),
-				Quakk.QuakkBuilder.aNew("Damn! We lost!").from(user).at(time).build()
+				Quakk.aNew().withMessage("Good game though.").from(user).at(time).build(),
+				Quakk.aNew().withMessage("Damn! We lost!").from(user).at(time).build()
 		);
 
 		context.checking(new Expectations() {{
@@ -79,8 +78,8 @@ public class QuakkerClientShould {
 		final User user = new User("Charlie");
 		final DateTime time = new DateTime("23:00");
 		final Timeline userTimeline = new Timeline(
-				Quakk.QuakkBuilder.aNew("Good game though.").from(user).at(time).build(),
-				Quakk.QuakkBuilder.aNew("Damn! We lost!").from(user).at(time).build()
+				Quakk.aNew().withMessage("Good game though.").from(user).at(time).build(),
+				Quakk.aNew().withMessage("Damn! We lost!").from(user).at(time).build()
 		);
 
 		context.checking(new Expectations() {{
@@ -117,11 +116,11 @@ public class QuakkerClientShould {
 
 		final User charlie = new User("Charlie");
 		final Timeline charlieTimeline = new Timeline(
-				Quakk.QuakkBuilder.aNew("First Quakk!").from(charlie).at(new DateTime("21:50")).build()
+				Quakk.aNew().withMessage("First Quakk!").from(charlie).at(new DateTime("21:50")).build()
 		);
 		final User bob = new User("Bob");
 		final Timeline bobTimeline = new Timeline(
-				Quakk.QuakkBuilder.aNew("Hello World").from(bob).at(new DateTime("20:50")).build()
+				Quakk.aNew().withMessage("Hello World").from(bob).at(new DateTime("20:50")).build()
 		);
 
 		context.checking(new Expectations() {{
