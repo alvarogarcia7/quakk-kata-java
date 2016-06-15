@@ -9,14 +9,12 @@ public class DateTime {
 	private final LocalTime value;
 
 	public DateTime (String representation) {
-		LocalTime value1;
 		try {
 			representation = obtainDateWithSeconds(representation);
-			value1 = LocalTime.parse(representation, DateTimeFormatter.ofPattern("H:m:ss"));
+			value = LocalTime.parse(representation, DateTimeFormatter.ofPattern("H:m:ss"));
 		} catch (DateTimeParseException e) {
 			throw new RuntimeException(e);
 		}
-		value = value1;
 	}
 
 	private String obtainDateWithSeconds (String representation) {

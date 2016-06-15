@@ -42,6 +42,7 @@ public class Quakk {
 		private User owner;
 
 		private DateTime dateTime;
+
 		public static QuakkBuilder aNew () {
 			return new QuakkBuilder();
 		}
