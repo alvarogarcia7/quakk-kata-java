@@ -1,6 +1,6 @@
 package com.codurance.test.quakker.test.unit.core.rules;
 
-import com.codurance.test.quakker.core.rules.Rule;
+import com.codurance.test.quakker.core.rules.GatedRule;
 import com.codurance.test.quakker.core.rules.Rules;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
@@ -17,12 +17,6 @@ public class RulesShould {
     }
 
     @Test
-    public void stop_when_the_first_rule_applies () {
-
-        execute_rule_that_applies_then_rule_that_does_not();
-    }
-
-    @Test
     public void apply_rules_in_order () {
 
         execute_rule_that_applies_then_rule_that_does_not();
@@ -30,14 +24,14 @@ public class RulesShould {
 
     private void execute_rule_that_applies_then_rule_that_does_not () {
         final String representation = "A";
-        final Rule ruleThatApplies = context.mock(Rule.class, "ruleThatApplies");
-        final Rule ruleThatDoesNotApply = context.mock(Rule.class, "ruleThatDoesNotApply");
+        final GatedRule rule1 = context.mock(GatedRule.class, "rule1");
+        final GatedRule rule2 = context.mock(GatedRule.class, "rule2");
         context.checking(new Expectations() {{
-            oneOf(ruleThatApplies).apply(representation);
-            oneOf(ruleThatDoesNotApply).apply(representation);
+            oneOf(rule1).apply(representation);
+            oneOf(rule2).apply(representation);
         }});
 
-        new Rules(ruleThatApplies, ruleThatDoesNotApply).applyTo(representation);
+        new Rules(rule1, rule2).applyTo(representation);
 
 
         context.assertIsSatisfied();
