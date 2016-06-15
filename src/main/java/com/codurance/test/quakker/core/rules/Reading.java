@@ -8,24 +8,24 @@ import com.codurance.test.quakker.infrastructure.format.ReadingFormat;
 
 public class Reading implements Rule {
 
-	private final Output output;
-	private final QuakkRepository repository;
-	private Clock clock;
+    private final Output output;
+    private final QuakkRepository repository;
+    private Clock clock;
 
-	public Reading (final QuakkRepository repository, final Output output, final Clock clock) {
-		this.output = output;
-		this.repository = repository;
-		this.clock = clock;
-	}
+    public Reading (final QuakkRepository repository, final Output output, final Clock clock) {
+        this.output = output;
+        this.repository = repository;
+        this.clock = clock;
+    }
 
-	@Override
-	public void apply (final String representation) {
-		repository.wall(new User(representation)).printAt(output, new ReadingFormat(clock));
-	}
+    @Override
+    public void apply (final String representation) {
+        repository.wall(new User(representation)).printAt(output, new ReadingFormat(clock));
+    }
 
-	@Override
-	public boolean appliesTo (final String representation) {
-		return true;
-	}
+    @Override
+    public boolean appliesTo (final String representation) {
+        return true;
+    }
 
 }

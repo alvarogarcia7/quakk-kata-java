@@ -3,10 +3,10 @@ package com.codurance.test.quakker.infrastructure.format;
 import java.time.Duration;
 
 public class DateDifferenceFormatter {
-	public String difference (final Duration duration) {
-		final long hours = duration.toHours();
-		final long minutes = duration.toMinutes();
-		final long seconds = duration.toMillis() / 1_000;
+    public String difference (final Duration duration) {
+        final long hours = duration.toHours();
+        final long minutes = duration.toMinutes();
+        final long seconds = duration.toMillis() / 1_000;
 
         if (duration.isZero()) {
             return "just now";

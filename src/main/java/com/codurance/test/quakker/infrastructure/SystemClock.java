@@ -8,8 +8,8 @@ import java.time.Instant;
 import java.util.Date;
 
 public class SystemClock implements Clock{
-	@Override
-	public DateTime now () {
-		return new DateTime(new SimpleDateFormat("HH:mm:ss").format(Date.from(Instant.now())));
-	}
+    @Override
+    public DateTime now () {
+        return new DateTime(new SimpleDateFormat("HH:mm:ss").format(Date.from(Instant.now())));
+    }
 }

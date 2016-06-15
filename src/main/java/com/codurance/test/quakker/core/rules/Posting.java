@@ -7,60 +7,60 @@ import com.codurance.test.quakker.core.domain.User;
 
 public class Posting implements Rule {
 
-	public static final String KEYWORD_CREATION = " -> ";
-	private final QuakkRepository repository;
-	private final Clock clock;
+    public static final String KEYWORD_CREATION = " -> ";
+    private final QuakkRepository repository;
+    private final Clock clock;
 
-	public Posting (final QuakkRepository repository, final Clock clock) {
+    public Posting (final QuakkRepository repository, final Clock clock) {
 
-		this.repository = repository;
-		this.clock = clock;
-	}
+        this.repository = repository;
+        this.clock = clock;
+    }
 
-	@Override
-	public void apply (final String representation) {
-		repository.save(parseQuack(representation));
-	}
+    @Override
+    public void apply (final String representation) {
+        repository.save(parseQuack(representation));
+    }
 
-	private Quakk parseQuack (final String representation) {
-		QuakkMessageSplitter messageSplitter = new QuakkMessageSplitter(representation).invoke();
-		final Quakk quakk = Quakk.aNew().withMessage(messageSplitter.getMessage())
-				.from(messageSplitter.getUser())
-				.at(clock.now()).build();
-		return quakk;
-	}
+    private Quakk parseQuack (final String representation) {
+        QuakkMessageSplitter messageSplitter = new QuakkMessageSplitter(representation).invoke();
+        final Quakk quakk = Quakk.aNew().withMessage(messageSplitter.getMessage())
+                .from(messageSplitter.getUser())
+                .at(clock.now()).build();
+        return quakk;
+    }
 
-	@Override
-	public boolean appliesTo (final String representation) {
-		return representation.contains(KEYWORD_CREATION);
-	}
+    @Override
+    public boolean appliesTo (final String representation) {
+        return representation.contains(KEYWORD_CREATION);
+    }
 
-	private class QuakkMessageSplitter {
-		private final String representation;
-		private User user;
-		private String message;
+    private class QuakkMessageSplitter {
+        private final String representation;
+        private User user;
+        private String message;
 
-		public QuakkMessageSplitter (final String representation) {
-			this.representation = representation;
-		}
+        public QuakkMessageSplitter (final String representation) {
+            this.representation = representation;
+        }
 
-		public User getUser () {
-			return user;
-		}
+        public User getUser () {
+            return user;
+        }
 
-		public String getMessage () {
-			return message;
-		}
+        public String getMessage () {
+            return message;
+        }
 
-		public QuakkMessageSplitter invoke () {
-			final String[] parts = splitByFirstToken();
-			user = new User(parts[0]);
-			message = parts[1];
-			return this;
-		}
+        public QuakkMessageSplitter invoke () {
+            final String[] parts = splitByFirstToken();
+            user = new User(parts[0]);
+            message = parts[1];
+            return this;
+        }
 
-		private String[] splitByFirstToken () {
-			return representation.split(KEYWORD_CREATION, 2);
-		}
-	}
+        private String[] splitByFirstToken () {
+            return representation.split(KEYWORD_CREATION, 2);
+        }
+    }
 }

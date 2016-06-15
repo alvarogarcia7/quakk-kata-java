@@ -6,58 +6,58 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class DateTime {
-	private final LocalTime value;
+    private final LocalTime value;
 
-	public DateTime (String representation) {
-		try {
-			representation = obtainDateWithSeconds(representation);
-			value = LocalTime.parse(representation, DateTimeFormatter.ofPattern("H:m:ss"));
-		} catch (DateTimeParseException e) {
-			throw new RuntimeException(e);
-		}
-	}
+    public DateTime (String representation) {
+        try {
+            representation = obtainDateWithSeconds(representation);
+            value = LocalTime.parse(representation, DateTimeFormatter.ofPattern("H:m:ss"));
+        } catch (DateTimeParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	private String obtainDateWithSeconds (String representation) {
-		if (representation.length() < 7) {
-			representation = representation + ":00";
-		}
-		return representation;
-	}
+    private String obtainDateWithSeconds (String representation) {
+        if (representation.length() < 7) {
+            representation = representation + ":00";
+        }
+        return representation;
+    }
 
-	public int compare (final DateTime other) {
-		return this.value.compareTo(other.value);
-	}
+    public int compare (final DateTime other) {
+        return this.value.compareTo(other.value);
+    }
 
-	public LocalTime value () {
-		return value;
-	}
+    public LocalTime value () {
+        return value;
+    }
 
-	public Duration minus (final DateTime start) {
-		final DateTime end = this;
+    public Duration minus (final DateTime start) {
+        final DateTime end = this;
 
-		return Duration.between(start.value, end.value);
-	}
+        return Duration.between(start.value, end.value);
+    }
 
-	public String toString () {
-		final StringBuffer sb = new StringBuffer("DateTime{");
-		sb.append("value=").append(value);
-		sb.append('}');
-		return sb.toString();
-	}
+    public String toString () {
+        final StringBuffer sb = new StringBuffer("DateTime{");
+        sb.append("value=").append(value);
+        sb.append('}');
+        return sb.toString();
+    }
 
-	@Override
-	public boolean equals (final Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+    @Override
+    public boolean equals (final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-		final DateTime dateTime = (DateTime) o;
+        final DateTime dateTime = (DateTime) o;
 
-		return value != null ? value.equals(dateTime.value) : dateTime.value == null;
+        return value != null ? value.equals(dateTime.value) : dateTime.value == null;
 
-	}
+    }
 
-	@Override
-	public int hashCode () {
-		return value != null ? value.hashCode() : 0;
-	}
+    @Override
+    public int hashCode () {
+        return value != null ? value.hashCode() : 0;
+    }
 }

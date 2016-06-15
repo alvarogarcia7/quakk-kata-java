@@ -16,33 +16,33 @@ import static org.hamcrest.core.Is.is;
 
 public class ReadingFormatShould {
 
-	private Mockery context;
-	private Clock clock;
-	private Format format;
+    private Mockery context;
+    private Clock clock;
+    private Format format;
 
-	@Before
-	public void setUp () {
-		context = new Mockery();
-		clock = context.mock(Clock.class);
-	}
+    @Before
+    public void setUp () {
+        context = new Mockery();
+        clock = context.mock(Clock.class);
+    }
 
-	@Test
-	public void format_quakks () {
+    @Test
+    public void format_quakks () {
 
-		format = new ReadingFormat(clock);
+        format = new ReadingFormat(clock);
 
-		context.checking(new Expectations() {{
-			oneOf(clock).now(); will(returnValue(new DateTime("21:10")));
-		}});
+        context.checking(new Expectations() {{
+            oneOf(clock).now(); will(returnValue(new DateTime("21:10")));
+        }});
 
-		final String formatted = format.format(Quakk.aNew().withMessage("message")
-				.from(new User("user"))
-				.at(new DateTime("21:00"))
-				.build());
+        final String formatted = format.format(Quakk.aNew().withMessage("message")
+                .from(new User("user"))
+                .at(new DateTime("21:00"))
+                .build());
 
-		assertThat(formatted, is("message (10 minutes ago)"));
+        assertThat(formatted, is("message (10 minutes ago)"));
 
-		context.assertIsSatisfied();
-	}
+        context.assertIsSatisfied();
+    }
 
 }

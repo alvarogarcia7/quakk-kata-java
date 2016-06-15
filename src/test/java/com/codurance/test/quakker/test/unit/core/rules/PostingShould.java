@@ -17,32 +17,32 @@ import static org.hamcrest.Matchers.is;
 
 public class PostingShould {
 
-	private Mockery context;
+    private Mockery context;
 
-	@Before
-	public void setUp () {
-		context = new Mockery();
-	}
+    @Before
+    public void setUp () {
+        context = new Mockery();
+    }
 
-	@Test
-	public void allow_arrow_as_message_body () {
+    @Test
+    public void allow_arrow_as_message_body () {
 
-		final QuakkRepository repository = context.mock(QuakkRepository.class);
-		final Clock clock = context.mock(Clock.class);
-		final Rule rule = new Posting(repository, clock);
-		final DateTime time = new DateTime("22:30");
+        final QuakkRepository repository = context.mock(QuakkRepository.class);
+        final Clock clock = context.mock(Clock.class);
+        final Rule rule = new Posting(repository, clock);
+        final DateTime time = new DateTime("22:30");
 
-		context.checking(new Expectations() {{
-			oneOf(repository).save(Quakk.aNew().withMessage("See link -> google.com").from(new User("user")).at(time)
-					.build());
-			oneOf(clock).now();
-			will(returnValue(time));
-		}});
+        context.checking(new Expectations() {{
+            oneOf(repository).save(Quakk.aNew().withMessage("See link -> google.com").from(new User("user")).at(time)
+                    .build());
+            oneOf(clock).now();
+            will(returnValue(time));
+        }});
 
-		assertThat(rule.appliesTo("user -> See link -> google.com"), is(true));
-		rule.apply("user -> See link -> google.com");
+        assertThat(rule.appliesTo("user -> See link -> google.com"), is(true));
+        rule.apply("user -> See link -> google.com");
 
-		context.assertIsSatisfied();
-	}
+        context.assertIsSatisfied();
+    }
 
 }

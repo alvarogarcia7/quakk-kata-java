@@ -7,11 +7,11 @@ import com.codurance.test.quakker.core.domain.User;
 import java.util.List;
 
 public interface QuakkRepository {
-	void save (Quakk quakk);
+    void save (Quakk quakk);
 
-	Timeline wall (User user);
+    Timeline wall (User user);
 
-	void follow (User whoFollows, User followingTo);
+    void follow (User whoFollows, User followingTo);
 
-	List<User> followedBy (User user);
+    List<User> followedBy (User user);
 }

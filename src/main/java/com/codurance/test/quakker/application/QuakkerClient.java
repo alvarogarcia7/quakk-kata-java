@@ -11,19 +11,19 @@ import com.codurance.test.quakker.core.rules.Wall;
 
 public class QuakkerClient {
 
-	private final Rules rules;
+    private final Rules rules;
 
-	public QuakkerClient (final QuakkRepository repository, final Output output, final Clock clock) {
-		this.rules = new Rules(
-				new Posting(repository, clock),
-				new Following(repository),
-				new Wall(repository, output, clock),
-				new Reading(repository, output, clock)
-		);
-	}
+    public QuakkerClient (final QuakkRepository repository, final Output output, final Clock clock) {
+        this.rules = new Rules(
+                new Posting(repository, clock),
+                new Following(repository),
+                new Wall(repository, output, clock),
+                new Reading(repository, output, clock)
+        );
+    }
 
-	public void execute (final String commandRepresentation) {
-		rules.applyTo(commandRepresentation);
-	}
+    public void execute (final String commandRepresentation) {
+        rules.applyTo(commandRepresentation);
+    }
 
 }
