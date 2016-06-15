@@ -40,7 +40,7 @@ public class CLIApplicationTest {
                     returnValue(new DateTime("21:30"))));
             oneOf(inputOutput).print("John - first quakk! (2 minutes ago)");
         }});
-        final CLIQuakkerClient cli = new CLIQuakkerClient(repository, inputOutput, clock, inputOutput);
+        final CLIQuakkerClient cli = new CLIQuakkerClient(repository, clock, inputOutput);
 
         cli.run();
 
@@ -65,7 +65,7 @@ public class CLIApplicationTest {
             oneOf(inputOutput).print("John - first quakk! (2 minutes ago)");
             oneOf(inputOutput).print("John - first quakk! (3 minutes ago)");
         }});
-        final CLIQuakkerClient cli = new CLIQuakkerClient(repository, inputOutput, clock, inputOutput);
+        final CLIQuakkerClient cli = new CLIQuakkerClient(repository, clock, inputOutput);
 
         cli.run();
 

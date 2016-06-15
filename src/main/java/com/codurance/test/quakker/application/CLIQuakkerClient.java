@@ -12,9 +12,9 @@ public class CLIQuakkerClient {
     private final QuakkerClient client;
     private final InputOutput inputOutput;
 
-    public CLIQuakkerClient (final QuakkRepository repository, final InputOutput output, final Clock clock, final InputOutput inputOutput) {
+    public CLIQuakkerClient (final QuakkRepository repository, final Clock clock, final InputOutput inputOutput) {
         this.inputOutput = inputOutput;
-        this.client = new QuakkerClient(repository, output, clock);
+        this.client = new QuakkerClient(repository, inputOutput, clock);
     }
 
     public void run () {
@@ -30,7 +30,6 @@ public class CLIQuakkerClient {
     public static void main (String[] args) {
         new CLIQuakkerClient(
                 new InMemoryQuakkRepository(),
-                new ConsoleInputOutput(System.in, System.out),
                 new SystemClock(),
                 new ConsoleInputOutput(System.in, System.out)).run();
     }
