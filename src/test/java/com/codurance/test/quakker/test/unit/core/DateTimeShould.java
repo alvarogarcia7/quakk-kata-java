@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.test.unit;
+package com.codurance.test.quakker.test.unit.core;
 
 import com.codurance.test.quakker.core.domain.DateTime;
 import org.junit.Test;
