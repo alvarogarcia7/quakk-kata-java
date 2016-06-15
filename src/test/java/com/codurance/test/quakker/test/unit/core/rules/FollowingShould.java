@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.test.unit;
+package com.codurance.test.quakker.test.unit.core.rules;
 
 import com.codurance.test.quakker.core.KnownLimitations;
 import com.codurance.test.quakker.core.domain.User;
