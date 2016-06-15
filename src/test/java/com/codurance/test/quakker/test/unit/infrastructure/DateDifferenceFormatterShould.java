@@ -1,4 +1,4 @@
-package com.codurance.test.quakker.test.unit;
+package com.codurance.test.quakker.test.unit.infrastructure;
 
 import com.codurance.test.quakker.infrastructure.format.DateDifferenceFormatter;
 import com.codurance.test.quakker.core.domain.DateTime;
